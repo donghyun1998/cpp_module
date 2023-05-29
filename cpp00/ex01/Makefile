@@ -5,17 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/29 22:18:14 by donghyk2          #+#    #+#              #
-#    Updated: 2023/05/29 22:58:20 by donghyk2         ###   ########.fr        #
+#    Created: 2023/05/29 22:53:37 by donghyk2          #+#    #+#              #
+#    Updated: 2023/05/29 22:59:33 by donghyk2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= megaphone
+
+NAME			= phonebook
 
 CC				= @clang++
 CFLAGS			= -Wall -Werror -Wextra
 
-SRC				= megaphone.cpp
+SRC				= main.cpp
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
