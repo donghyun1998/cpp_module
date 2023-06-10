@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:54:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/09 22:33:25 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/10 20:01:38 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,32 @@ struct t_info
 	std::string	darkest_secret;
 };
 
+/*
 
+class Circle {
+	int radius;
+
+	Circle(int radius) {
+		this->radus = radius;
+	}
+}
+
+*/
 
 class PhoneBook {
 private:
 	t_info	info[8]; // new 안됨 할당X
-	int		last_idx = 0; // 추가 하면 넣을 인덱스
-	int		info_size = 0; // 사람 수만큼 빼주고 8로 나누면 시작 인덱스 완성
+	int		last_idx; // 추가 하면 넣을 인덱스
+	int		info_size; // 사람 수만큼 빼주고 8로 나누면 시작 인덱스 완성
 	// 첫번째 인덱스는 |last_idx - info_size|
 public:
 
-	// void	PhoneBook(void)
-	// {
-	// 	last
-	// }
+	PhoneBook()
+	{
+		this->last_idx = 0;
+		this->info_size = 0;
+	}
+
 	void	AddInfo(void)
 	{
 		std::cout << "lastidx: " << last_idx << "info_size:" << info_size << '\n'; ////////
