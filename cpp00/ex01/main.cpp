@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:54:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/10 20:01:38 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/14 21:03:39 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,6 @@ struct t_info
 	std::string	phone_number;
 	std::string	darkest_secret;
 };
-
-/*
-
-class Circle {
-	int radius;
-
-	Circle(int radius) {
-		this->radus = radius;
-	}
-}
-
-*/
 
 class PhoneBook {
 private:
@@ -50,7 +38,6 @@ public:
 
 	void	AddInfo(void)
 	{
-		std::cout << "lastidx: " << last_idx << "info_size:" << info_size << '\n'; ////////
 		std::cout << "이름을 입력해주세요\n";
 		std::cin >> info[last_idx].first_name;
 		std::cout << "성을 입력해주세요\n";
@@ -61,14 +48,52 @@ public:
 		std::cin >> info[last_idx].phone_number;
 		std::cout << "비밀을 입력해주세요\n";
 		std::cin >> info[last_idx].darkest_secret;
-		if (last_idx >= 8) // 이걸로 첫번째 인덱스 구할 것
-			last_idx = 0;
 		if (info_size < 8)
-		{
 			info_size++;
-			last_idx++;
-		}
+		if (++last_idx >= 8) // 이걸로 첫번째 인덱스 구할 것
+			last_idx = 0;
 		std::cout << "lastidx: " << last_idx << '\n'; ////////
+	}
+
+	void	PrintInfo(std::string s)
+	{
+		if (s.size() < 8)
+		{
+			// 출력하고 남은만큼 스페이스바
+			std::cout << s;
+			for (int i = 0; i < 8 - (int)s.size(); i++)
+				std::cout << ' ';
+		}
+		else if (s.size() == 8)
+			std::cout << s;
+		else
+		{
+			for (int i = 0; i < 7; i++)
+				std::cout << s[i];
+			std::cout << '.';
+		}
+	}
+
+	void	Search(void)
+	{
+		int	idx = 0;
+		int	offset = 0;
+		int	num;
+
+		while (idx < info_size && idx < 8)
+		{
+			num = abs(last_idx - info_size) + idx - offset; // 이거 아님 임시로 해둠
+			if (num > 8)
+				offset += 8;
+			std::cout << idx << "         |";
+			PrintInfo(info[num].first_name);
+			std::cout << '|';
+			PrintInfo(info[num].last_name);
+			std::cout << '|';
+			PrintInfo(info[num].nickname); // seg뜸
+			std::cout << '\n';
+			idx++;
+		}
 	}
 };
 
@@ -94,8 +119,7 @@ int	main(void)
 			// 프로그램은 존재하는 (비어있지 않은) 모든 연락처 리스트를 다음과 같은 4개의 열로 나누어 보여주어야 합니다 : 인덱스, 성, 이름, 별명
 			// 각 열은 너비 10 문자로, 가로 정렬되어 있어야 하며 '|' 문자로 구분되어야 합니다. 열의 너비보다 긴 출력 문자열은 잘리고 마지막 표시 가능 문자는 점 ('.') 으로 치환됩니다.
 			// 그리고 프로그램은 원하는 연락처 항목의 인덱스를 입력받아, 연락처를 한 필드당 한 줄씩 출력하여야 합니다. 의미없는 입력값에 대해선 적절한 동작을 정의하세요.
-
-
+			phoneBook.Search();
 		}
 		else if (cmd == "EXIT")
 			break ;
