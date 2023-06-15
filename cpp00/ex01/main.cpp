@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:54:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/15 12:45:24 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:48:35 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 struct Contact
 {
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
+	std::string	firstName;
+	std::string	lastName;
+	std::string	nickName;
+	std::string	phoneNumber;
+	std::string	darkestSecret;
 };
 
 class PhoneBook {
@@ -38,15 +38,15 @@ public:
 	void	AddInfo(void)
 	{
 		std::cout << "이름을 입력해주세요\n";
-		std::cin >> info[lastIdx].first_name;
+		std::cin >> info[lastIdx].firstName;
 		std::cout << "성을 입력해주세요\n";
-		std::cin >> info[lastIdx].last_name;
+		std::cin >> info[lastIdx].lastName;
 		std::cout << "별명을 입력해주세요\n";
-		std::cin >> info[lastIdx].nickname;
+		std::cin >> info[lastIdx].nickName;
 		std::cout << "핸드폰 번호를 입력해주세요\n";
-		std::cin >> info[lastIdx].phone_number;
+		std::cin >> info[lastIdx].phoneNumber;
 		std::cout << "비밀을 입력해주세요\n";
-		std::cin >> info[lastIdx].darkest_secret;
+		std::cin >> info[lastIdx].darkestSecret;
 		if (infoSize < 8)
 			infoSize++;
 		if (++lastIdx >= 8)
@@ -84,11 +84,11 @@ public:
 				num = (lastIdx + 1 + idx) % 8;
 
 			std::cout << idx << "         |";
-			PrintInfo(info[num].first_name);
+			PrintInfo(info[num].firstName);
 			std::cout << '|';
-			PrintInfo(info[num].last_name);
+			PrintInfo(info[num].lastName);
 			std::cout << '|';
-			PrintInfo(info[num].nickname);
+			PrintInfo(info[num].nickName);
 			std::cout << '\n';
 			idx++;
 		}
