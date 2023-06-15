@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:54:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/14 21:03:39 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:31:05 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,34 +25,34 @@ struct t_info
 class PhoneBook {
 private:
 	t_info	info[8]; // new 안됨 할당X
-	int		last_idx; // 추가 하면 넣을 인덱스
-	int		info_size; // 사람 수만큼 빼주고 8로 나누면 시작 인덱스 완성
-	// 첫번째 인덱스는 |last_idx - info_size|
+	int		lastIdx; // 추가 하면 넣을 인덱스
+	int		infoSize; // 사람 수만큼 빼주고 8로 나누면 시작 인덱스 완성
+	// 첫번째 인덱스는 |lastIdx - infoSize|
 public:
 
 	PhoneBook()
 	{
-		this->last_idx = 0;
-		this->info_size = 0;
+		this->lastIdx = 0;
+		this->infoSize = 0;
 	}
 
 	void	AddInfo(void)
 	{
 		std::cout << "이름을 입력해주세요\n";
-		std::cin >> info[last_idx].first_name;
+		std::cin >> info[lastIdx].first_name;
 		std::cout << "성을 입력해주세요\n";
-		std::cin >> info[last_idx].last_name;
+		std::cin >> info[lastIdx].last_name;
 		std::cout << "별명을 입력해주세요\n";
-		std::cin >> info[last_idx].nickname;
+		std::cin >> info[lastIdx].nickname;
 		std::cout << "핸드폰 번호를 입력해주세요\n";
-		std::cin >> info[last_idx].phone_number;
+		std::cin >> info[lastIdx].phone_number;
 		std::cout << "비밀을 입력해주세요\n";
-		std::cin >> info[last_idx].darkest_secret;
-		if (info_size < 8)
-			info_size++;
-		if (++last_idx >= 8) // 이걸로 첫번째 인덱스 구할 것
-			last_idx = 0;
-		std::cout << "lastidx: " << last_idx << '\n'; ////////
+		std::cin >> info[lastIdx].darkest_secret;
+		if (infoSize < 8)
+			infoSize++;
+		if (++lastIdx >= 8)
+			lastIdx %= 8;
+		std::cout << "infosize: " << infoSize << " lastidx: " << lastIdx << '\n'; ////////
 	}
 
 	void	PrintInfo(std::string s)
@@ -77,14 +77,15 @@ public:
 	void	Search(void)
 	{
 		int	idx = 0;
-		int	offset = 0;
 		int	num;
 
-		while (idx < info_size && idx < 8)
+		while (idx < infoSize && idx < 8)
 		{
-			num = abs(last_idx - info_size) + idx - offset; // 이거 아님 임시로 해둠
-			if (num > 8)
-				offset += 8;
+			if (infoSize < 8)
+				num = (lastIdx - infoSize + idx) % 8;
+			else
+				num = (lastIdx + 1 + idx) % 8; // 이거 아님 임시로 해둠
+
 			std::cout << idx << "         |";
 			PrintInfo(info[num].first_name);
 			std::cout << '|';

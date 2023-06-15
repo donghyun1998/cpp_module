@@ -1,0 +1,9 @@
+{
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/Users/donghyun/42서울/cppmodule/cpp00/ex01",
+			"binaryPath": "/Users/donghyun/42서울/cppmodule/cpp00/ex01/phonebook",
+			"binaryArgs": []
+		}
+	]
+}
