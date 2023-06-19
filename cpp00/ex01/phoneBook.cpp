@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:53:11 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/19 21:04:14 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/19 21:12:35 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	PhoneBook::PrintLineSearch(int idx)
 	std::cout << '\n';
 }
 
-void PhoneBook::Search(void) {// 인인덱스 넣는거 추가해야함 그리고 그게 숫자인지도 확인해야함 오른쪽 정렬도
+void PhoneBook::Search(void) { //오른쪽 정렬해야함
 	int			idx = 0;
 	std::string	buffer = "";
 
