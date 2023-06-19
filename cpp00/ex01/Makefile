@@ -6,7 +6,7 @@
 #    By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 22:53:37 by donghyk2          #+#    #+#              #
-#    Updated: 2023/06/18 14:58:30 by donghyk2         ###   ########.fr        #
+#    Updated: 2023/06/19 20:17:54 by donghyk2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@
 NAME			= phonebook
 
 CC				= @clang++
-CFLAGS			= -Wall -Werror -Wextra
+CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp phoneBook.cpp
+SRC				= main.cpp phoneBook.cpp getterSetter.cpp
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@

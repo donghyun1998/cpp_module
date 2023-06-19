@@ -6,14 +6,14 @@
 #    By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 22:18:14 by donghyk2          #+#    #+#              #
-#    Updated: 2023/05/29 22:58:20 by donghyk2         ###   ########.fr        #
+#    Updated: 2023/06/19 18:19:27 by donghyk2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= megaphone
 
 CC				= @clang++
-CFLAGS			= -Wall -Werror -Wextra
+CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
 SRC				= megaphone.cpp
 
