@@ -6,13 +6,13 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:53:11 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/21 18:05:59 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:49:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phoneBook.hpp"
 
-void	PhoneBook::isEof(void)
+void	PhoneBook::exitEof(void)
 {
 	if (std::cin.eof()) {
 		std::cout << "eof" << std::endl;
@@ -22,27 +22,41 @@ void	PhoneBook::isEof(void)
 
 void PhoneBook::AddInfo(void) {
 	std::string	buffer = "";
- // 빈필드가 있으면 안됨//////////////////////////////////
-	std::cout << "이름을 입력해주세요" << std::endl;
-	std::getline(std::cin, buffer);
-	isEof();
-	info[lastIdx].SetFirstName(buffer);
-	std::cout << "성을 입력해주세요" << std::endl;
-	std::getline(std::cin, buffer);
-	isEof();
-	info[lastIdx].SetLastName(buffer);
-	std::cout << "별명을 입력해주세요" << std::endl;
-	getline(std::cin, buffer);
-	isEof();
-	info[lastIdx].SetNickName(buffer);
-	std::cout << "핸드폰 번호를 입력해주세요" << std::endl;
-	getline(std::cin, buffer);
-	isEof();
-	info[lastIdx].SetPhoneNumber(buffer);
-	std::cout << "비밀을 입력해주세요" << std::endl;
-	getline(std::cin, buffer);
-	isEof();
-	info[lastIdx].SetDarkestSecret(buffer);
+
+	while (buffer.empty()) {
+		std::cout << "이름을 입력해주세요" << std::endl;
+		std::getline(std::cin, buffer);
+		exitEof();
+		info[lastIdx].SetFirstName(buffer);
+	}
+	buffer.clear();
+	while (buffer.empty()) {
+		std::cout << "성을 입력해주세요" << std::endl;
+		std::getline(std::cin, buffer);
+		exitEof();
+		info[lastIdx].SetLastName(buffer);
+	}
+	buffer.clear();
+	while (buffer.empty()) {
+		std::cout << "별명을 입력해주세요" << std::endl;
+		getline(std::cin, buffer);
+		exitEof();
+		info[lastIdx].SetNickName(buffer);
+	}
+	buffer.clear();
+	while (buffer.empty()) {
+		std::cout << "핸드폰 번호를 입력해주세요" << std::endl;
+		getline(std::cin, buffer);
+		exitEof();
+		info[lastIdx].SetPhoneNumber(buffer);
+	}
+	buffer.clear();
+	while (buffer.empty()) {
+		std::cout << "비밀을 입력해주세요" << std::endl;
+		getline(std::cin, buffer);
+		exitEof();
+		info[lastIdx].SetDarkestSecret(buffer);
+	}
 	if (this->infoSize < 8)
 		this->infoSize++;
 	if (++(this->lastIdx) >= 8)
@@ -59,8 +73,7 @@ void PhoneBook::PrintInfo(std::string s) {
 	}
 }
 
-void	PhoneBook::PrintLineSearch(int idx)
-{
+void	PhoneBook::PrintLineSearch(int idx) {
 	int	num;
 
 	if (infoSize < 8)
@@ -78,8 +91,7 @@ void	PhoneBook::PrintLineSearch(int idx)
 	std::cout << std::endl;
 }
 
-void	PhoneBook::PrintLineExtraSearch(int idx)
-{
+void	PhoneBook::PrintLineExtraSearch(int idx) {
 	int	num;
 
 	if (infoSize < 8)
@@ -113,7 +125,7 @@ void PhoneBook::Search(void) {
 	{
 		std::cout << "검색할 0 - 7 사이의 인덱스를 넣어주세요" << std::endl;
 		std::getline(std::cin, buffer);
-		isEof();
+		exitEof();
 		idx = static_cast<int>(buffer[0] - '0');
 		if (!std::isdigit(buffer[0]) || buffer.size() != 1
 			|| (this->infoSize != 8 && this->lastIdx <= idx)
@@ -122,5 +134,5 @@ void PhoneBook::Search(void) {
 		break ;
 	}
 	PrintLineExtraSearch(idx);
-};
+}
 

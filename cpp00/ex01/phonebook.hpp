@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:09:34 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/21 17:46:11 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:49:57 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ class PhoneBook
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		void	isEof(void);
+		void	exitEof(void);
 		void	AddInfo(void);
 		void	Search(void);
 };
