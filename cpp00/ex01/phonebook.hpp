@@ -6,15 +6,18 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:09:34 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/19 21:12:22 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:46:11 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
+#define OK 0
+#define KO 1
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 // #include <sstream> isstringstream 사용 시 필요
 
 class PhoneBook
@@ -42,16 +45,17 @@ class PhoneBook
 				void		SetPhoneNumber(std::string s);
 				void		SetDarkestSecret(std::string s);
 		};
-	private:
 		Contact info[8];
 		int lastIdx;	 // 추가 하면 넣을 인덱스
 		int infoSize;	 // 사람 수만큼 빼주고 8로 나누면 시작 인덱스 완성
+		void	PrintLineSearch(int idx);
+		void	PrintLineExtraSearch(int idx);
+		void	PrintInfo(std::string s);
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
-		void	PrintLineSearch(int idx);
+		void	isEof(void);
 		void	AddInfo(void);
-		void	PrintInfo(std::string s);
 		void	Search(void);
 };
 
