@@ -6,11 +6,11 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:17:38 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/19 20:44:08 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:57:33 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
 	this->lastIdx = 0;

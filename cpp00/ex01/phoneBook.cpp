@@ -6,11 +6,11 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:53:11 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/21 22:49:43 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:58:52 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
 void	PhoneBook::exitEof(void)
 {
