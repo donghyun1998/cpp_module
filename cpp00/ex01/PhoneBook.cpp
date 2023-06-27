@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:17:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/22 16:17:10 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:42:00 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,60 @@ void	PhoneBook::exitEof(void)
 	}
 }
 
+static bool	isEmptyBuffer(std::string buffer) {
+	if (buffer == "")
+		return (true);
+	for (int i = 0; i < static_cast<int>(buffer.size()); i++)
+		if (std::isspace(buffer[i]) == 0)
+			return (false);
+	return (true);
+}
+
 void PhoneBook::AddInfo(void) {
 	std::string	buffer = "";
 
 	while (buffer.empty()) {
 		std::cout << "이름을 입력해주세요" << std::endl;
-		std::getline(std::cin, buffer);
-		exitEof();
+		while (isEmptyBuffer(buffer)) {
+			std::getline(std::cin, buffer);
+			exitEof();
+		}
 		info[lastIdx].SetFirstName(buffer);
 	}
 	buffer.clear();
 	while (buffer.empty()) {
 		std::cout << "성을 입력해주세요" << std::endl;
-		std::getline(std::cin, buffer);
-		exitEof();
+		while (isEmptyBuffer(buffer)) {
+			std::getline(std::cin, buffer);
+			exitEof();
+		}
 		info[lastIdx].SetLastName(buffer);
 	}
 	buffer.clear();
 	while (buffer.empty()) {
 		std::cout << "별명을 입력해주세요" << std::endl;
-		getline(std::cin, buffer);
-		exitEof();
+		while (isEmptyBuffer(buffer)) {
+			std::getline(std::cin, buffer);
+			exitEof();
+		}
 		info[lastIdx].SetNickName(buffer);
 	}
 	buffer.clear();
 	while (buffer.empty()) {
 		std::cout << "핸드폰 번호를 입력해주세요" << std::endl;
-		getline(std::cin, buffer);
-		exitEof();
+		while (isEmptyBuffer(buffer)) {
+			std::getline(std::cin, buffer);
+			exitEof();
+		}
 		info[lastIdx].SetPhoneNumber(buffer);
 	}
 	buffer.clear();
 	while (buffer.empty()) {
 		std::cout << "비밀을 입력해주세요" << std::endl;
-		getline(std::cin, buffer);
-		exitEof();
+		while (isEmptyBuffer(buffer)) {
+			std::getline(std::cin, buffer);
+			exitEof();
+		}
 		info[lastIdx].SetDarkestSecret(buffer);
 	}
 	if (this->infoSize < 8)

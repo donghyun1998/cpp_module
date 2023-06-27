@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:17:38 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/22 15:57:33 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:27:05 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 PhoneBook::PhoneBook(void) {
 	this->lastIdx = 0;
 	this->infoSize = 0;
-};
+}
 
 PhoneBook::~PhoneBook(void){
 	;
-};
+}
 
 PhoneBook::Contact::Contact(void) {
 	;
-};
+}
 
 PhoneBook::Contact::~Contact(void) {
 	;
-};
+}
 
 std::string	PhoneBook::Contact::GetFirstName(void) {
 	return (this->firstName);
