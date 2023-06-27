@@ -8,7 +8,7 @@
 // ************************************************************************** //
 
 
-#pragma once
+#pragma once // 중복 방지
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
@@ -43,7 +43,7 @@ private:
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
+	static int	_totalNbWithdrawals; // 프라이빗 멤버 변수는 _붙힌다
 
 	static void	_displayTimestamp( void );
 
