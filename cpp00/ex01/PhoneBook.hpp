@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:17:16 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/22 16:17:18 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:49:16 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ class PhoneBook
 		void	PrintLineSearch(int idx);
 		void	PrintLineExtraSearch(int idx);
 		void	PrintInfo(std::string s);
+		bool	isEmptyBuffer(std::string buffer);
+		void	setBuffer(std::string &buffer);
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
