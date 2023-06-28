@@ -23,7 +23,7 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
+	static int	getNbAccounts( void ); // 이 static은무저ㅣ
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
@@ -40,17 +40,17 @@ public:
 
 private:
 
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals; // 프라이빗 멤버 변수는 _붙힌다
+	static int	_nbAccounts; // 계좌 개수
+	static int	_totalAmount; // 총 잔고
+	static int	_totalNbDeposits; // 총 예금 횟수
+	static int	_totalNbWithdrawals; // 총 출금 횟수
 
 	static void	_displayTimestamp( void );
 
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
+	int				_accountIndex; // 계좌 번호
+	int				_amount; // 잔고
+	int				_nbDeposits; // 예금 횟수
+	int				_nbWithdrawals; // 출금 횟수
 
 	Account( void );
 

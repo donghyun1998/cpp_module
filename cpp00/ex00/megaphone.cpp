@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:20:56 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/19 18:18:16 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/06/28 19:04:56 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	main(int argc, char **argv) // cpp는 카멜케이스가 표준이다 스네
 	}
 	for (int i = 1; i < argc; i++)
 		PrintUpperString(argv[i]);
-	std::cout << '\n';
+	std::cout << std::endl;
 }
