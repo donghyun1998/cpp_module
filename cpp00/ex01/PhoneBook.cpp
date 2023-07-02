@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:17:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/06/27 16:46:38 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/02 17:58:05 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,7 @@ void PhoneBook::PrintInfo(std::string s) {
 	if (s.size() <= 10)
 		std::cout << std::setfill(' ') << std::setw(10) << s;
 	else
-	{
-		std::cout << std::setfill(' ') << std::setw(10) << s.substr(0, 9);
-		std::cout << '.';
-	}
+		std::cout << s.substr(0, 9) << '.';
 }
 
 void	PhoneBook::PrintLineSearch(int idx) {
