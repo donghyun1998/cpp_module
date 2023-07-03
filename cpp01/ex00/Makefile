@@ -6,7 +6,7 @@
 #    By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/02 14:07:41 by donghyk2          #+#    #+#              #
-#    Updated: 2023/07/02 14:41:05 by donghyk2         ###   ########.fr        #
+#    Updated: 2023/07/03 20:18:35 by donghyk2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME			= BraiiiiiiinnnzzzZ
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp
+SRC				= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
