@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:15:16 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/04 14:28:23 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:01:54 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ std::string	HumanB::getWeaponName(void) {
 
 HumanB::HumanB(std::string name) {
 	setHumanName(name);
-	_weaponName = NULL;
+	_weaponName = nullptr;
 }
 
 void	HumanB::attack() {

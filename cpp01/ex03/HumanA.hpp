@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 13:28:00 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/04 14:11:09 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:02:06 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class HumanA
 		Weapon	&_weaponName;
 	public:
 		HumanA(std::string name, Weapon &weaponName);
-		~HumanA();
 		void		setHumanName(std::string name);
 		std::string	getHumanName(void);
 		std::string	getWeaponName(void);
