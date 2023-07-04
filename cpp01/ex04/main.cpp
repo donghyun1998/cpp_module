@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:38:44 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/04 16:59:54 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:30:59 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ int	main(int argc, char **argv) {
 	std::ifstream	input(argv[1]);
 	std::ofstream	output(getSumOfString(argv[1], ".replace"));
 	std::string		line;
+
 	if (input.fail() || output.fail())
 		ftError("iofstream error");
 	while (std::getline(input, line)) {
-		output << getReplacedLine(line, argv[2], argv[3]) << std::endl;
+		output << getReplacedLine(line, argv[2], argv[3]);
+		if (!input.eof())
+			output << std::endl;
 	}
 	input.close();
 }

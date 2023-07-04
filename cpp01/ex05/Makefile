@@ -1,9 +1,9 @@
-NAME			= 
+NAME			= Harl
 
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp
+SRC				= main.cpp Harl.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
