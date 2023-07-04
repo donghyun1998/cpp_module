@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:38:44 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/04 15:55:05 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:59:54 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ std::string	getSumOfString(std::string s1, std::string s2) {
 }
 
 std::string getReplacedLine(std::string line, std::string src, std::string dst) {
-	for (int i = 0; i + src.size() <= line.size(); i++) {  // 등호(=) 추가
-		if (line.substr(i, src.size()) == src) {  // src와 비교하도록 수정
+	for (int i = 0; i + src.size() <= line.size(); i++)
+		if (line.substr(i, src.size()) == src)
 			line = line.substr(0, i) + dst + line.substr(i + src.size(), line.size() - (i + src.size()));
-		}
-	}
 	return line;
 }
 
