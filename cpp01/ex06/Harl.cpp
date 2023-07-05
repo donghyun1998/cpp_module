@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:20:37 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/05 13:34:40 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:20:00 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	Harl::complain( std::string level ) {
 			Harl::warning();
 		case 3:
 			Harl::error();
+			break;
 		default:
 			std::cout << "Easter Egg" << std::endl;
-			break;
 	}
 }
