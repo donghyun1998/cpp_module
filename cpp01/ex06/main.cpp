@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 17:20:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/05 12:56:23 by donghyk2         ###   ########.fr       */
+/*   Created: 2023/07/05 12:47:11 by donghyk2          #+#    #+#             */
+/*   Updated: 2023/07/05 13:19:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
-#define OK 0
-#define KO 1
+#include "Harl.hpp"
 
-#include <string>
-#include <iostream>
+int	main() {
+	Harl hal;
 
-class Harl
-{
-	private:
-		void	debug( void );
-		void	info( void );
-		void	warning( void );
-		void	error( void );
-		void	(Harl::*_func[4])(void);
-	public:
-		Harl();
-		void complain( std::string level );
-};
-
-#endif
+	hal.complain("DEBUG");
+	hal.complain("INFO");
+	hal.complain("WARNING");
+	hal.complain("ERROR");
+}
