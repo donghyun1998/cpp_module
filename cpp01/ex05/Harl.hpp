@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:20:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/05 00:07:03 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:43:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class Harl
 		void	info( void );
 		void	warning( void );
 		void	error( void );
-	public:
 		void	(Harl::*_func[4])(void);
+	public:
 		Harl();
 		void complain( std::string level );
 };
