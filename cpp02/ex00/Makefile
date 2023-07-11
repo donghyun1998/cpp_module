@@ -3,7 +3,7 @@ NAME			= Orthodox
 CC				= @c++
 CXXFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp
+SRC				= main.cpp Fixed.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
