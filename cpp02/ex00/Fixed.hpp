@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:28:51 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/07 14:49:02 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:14:13 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 class Fixed {
  	private:
-		int					_value;
-		static const int	_constant = 8;
+		int					_raw_bits;
+		static const int	_fractionsalBits = 8;
  	public:
 		Fixed();
 		Fixed(const Fixed& obj); // 복사생성자
