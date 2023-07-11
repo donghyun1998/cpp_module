@@ -1,4 +1,4 @@
-NAME			= Orthodox
+NAME			= fixed
 
 CC				= @c++
 CXXFLAGS		= -Wall -Werror -Wextra -std=c++98
