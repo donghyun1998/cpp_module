@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:28:51 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/13 14:42:48 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:52:11 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 	Fixed &operator=(const Fixed &obj); // =을 재정의 하는 것 - 연산자오버로딩
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
+	// ~ex00
 	Fixed(const int d);
 	Fixed(const float f);
 	float toFloat(void) const;
