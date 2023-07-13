@@ -6,13 +6,14 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:28:51 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/11 21:18:51 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:41:58 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
 #include <iostream>
+#include <cmath>
 
 class Fixed {
  	private:
@@ -31,5 +32,15 @@ class Fixed {
 		int toInt( void ) const;
 };
 		std::ostream& operator<<(std::ostream &output, const Fixed& obj);
-		 // friend빼기 싫으면 공용함수로 만들어야함
+		 // friend빼기 싫으면 공용함수로 만들어야함 - std::ostream의 << 에 수정 불가능하므로
+		bool operator>(const Fixed& first, const Fixed& second);
+		bool operator<(const Fixed& first, const Fixed& second);
+		bool operator>=(const Fixed& first, const Fixed& second);
+		bool operator<=(const Fixed& first, const Fixed& second);
+		bool operator==(const Fixed& first, const Fixed& second);
+		bool operator!=(const Fixed& first, const Fixed& second);
+		Fixed& operator+(const Fixed& first, const Fixed& second);
+		Fixed& operator-(const Fixed& first, const Fixed& second);
+		Fixed& operator*(const Fixed& first, const Fixed& second);
+		Fixed& operator/(const Fixed& first, const Fixed& second);
 #endif
