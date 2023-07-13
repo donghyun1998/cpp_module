@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:28:54 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/13 15:45:19 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:45:41 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Fixed::Fixed() {
 	_raw_bits = 0;
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& obj) {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	_raw_bits = obj.getRawBits();
 }
 
@@ -27,10 +27,10 @@ Fixed::Fixed(const Fixed& obj) {
 // }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 Fixed& Fixed::operator=(const Fixed& obj) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	this->_raw_bits = obj.getRawBits();
 	return (*this);
 }
@@ -45,12 +45,12 @@ void	Fixed::setRawBits( int const raw ) {
 }
 
 Fixed::Fixed( const int d) {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	_raw_bits = d << _bitsLength;
 }
 
 Fixed::Fixed( const float f) {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	_raw_bits = roundf(f * (1 << _bitsLength)); // 반올림 해서 넣어야 42.4129 나옴
 }
 
@@ -101,13 +101,19 @@ Fixed& Fixed::operator-(const Fixed& obj) {
 	return (*this);
 }
 
-Fixed& Fixed::operator*(const Fixed& obj) {
-	this->setRawBits(this->getRawBits() * obj.getRawBits());
+Fixed& Fixed::operator*(const Fixed& obj) { // 곱하기는 바꿔서 해야함 ㅋ
+	float	multi = this->toFloat() * obj.toFloat();
+	this->setRawBits(roundf(multi * (1 << _bitsLength)));
 	return (*this);
 }
 
 Fixed& Fixed::operator/(const Fixed& obj) {
-	this->setRawBits(this->getRawBits() / obj.getRawBits());
+	if (obj.getRawBits() == 0) {
+		std::cout << "devided by zero" << std::endl;
+		exit(1);
+	}
+	float	devide = this->toFloat() / obj.toFloat();
+	this->setRawBits(roundf(devide * (1 << _bitsLength)));
 	return (*this);
 }
 
@@ -141,12 +147,12 @@ Fixed&	Fixed::max(Fixed &first, Fixed &second) {
 		return(second);
 	return (first);
 }
-Fixed&	Fixed::min(const Fixed &first, const Fixed &second) {
+const Fixed&	Fixed::min(const Fixed &first, const Fixed &second) {
 	if (first.getRawBits() <= second.getRawBits())
 		return(first); // 이거 같을때 일단 임의로 해둠
 	return (second);
 }
-Fixed&	Fixed::max(const Fixed &first, const Fixed &second) {
+const Fixed&	Fixed::max(const Fixed &first, const Fixed &second) {
 	if (first.getRawBits() <= second.getRawBits())
 		return(second);
 	return (first);

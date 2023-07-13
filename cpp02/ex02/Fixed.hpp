@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:28:51 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/13 15:52:17 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:56:18 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ class Fixed {
 		Fixed	operator--(int);
 		static Fixed&	min(Fixed &first, Fixed &second);
 		static Fixed&	max(Fixed &first, Fixed &second);
-		static Fixed&	min(const Fixed &first, const Fixed &second);
-		static Fixed&	max(const Fixed &first, const Fixed &second);
+		static const Fixed&	min(const Fixed &first, const Fixed &second);
+		static const Fixed&	max(const Fixed &first, const Fixed &second);
 };
 		std::ostream&	operator<<(std::ostream &output, const Fixed& obj);
 		 // friend빼기 싫으면 공용함수로 만들어야함 - std::ostream의 << 에 수정 불가능하므로
