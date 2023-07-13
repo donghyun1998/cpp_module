@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:28:51 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/13 14:41:58 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:44:56 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,33 @@ class Fixed {
 		Fixed();
 		Fixed(const Fixed& obj); // 복사생성자
 		~Fixed();
-		Fixed& operator=(const Fixed& obj); // =을 재정의 하는 것 - 연산자오버로딩
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+		Fixed&	operator=(const Fixed& obj); // =을 재정의 하는 것 - 연산자오버로딩
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw );
 		Fixed( const int d);
 		Fixed( const float f);
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
+		bool	operator>(const Fixed& obj);
+		bool	operator<(const Fixed& obj);
+		bool	operator>=(const Fixed& obj);
+		bool	operator<=(const Fixed& obj);
+		bool	operator==(const Fixed& obj);
+		bool	operator!=(const Fixed& obj);
+		Fixed&	operator+(const Fixed& obj);
+		Fixed&	operator-(const Fixed& obj);
+		Fixed&	operator*(const Fixed& obj);
+		Fixed&	operator/(const Fixed& obj);
+		 //1 + ϵ > 1과 같이 표현 가능한 가장 작은 ϵ
+		Fixed&	operator++(); // 전위
+		Fixed	operator++(int); // 후위
+		Fixed&	operator--();
+		Fixed	operator--(int);
+		static Fixed&	min(Fixed &first, Fixed &second);
+		static Fixed&	max(Fixed &first, Fixed &second);
+		static Fixed&	min(const Fixed &first, const Fixed &second);
+		static Fixed&	max(const Fixed &first, const Fixed &second);
 };
-		std::ostream& operator<<(std::ostream &output, const Fixed& obj);
+		std::ostream&	operator<<(std::ostream &output, const Fixed& obj);
 		 // friend빼기 싫으면 공용함수로 만들어야함 - std::ostream의 << 에 수정 불가능하므로
-		bool operator>(const Fixed& first, const Fixed& second);
-		bool operator<(const Fixed& first, const Fixed& second);
-		bool operator>=(const Fixed& first, const Fixed& second);
-		bool operator<=(const Fixed& first, const Fixed& second);
-		bool operator==(const Fixed& first, const Fixed& second);
-		bool operator!=(const Fixed& first, const Fixed& second);
-		Fixed& operator+(const Fixed& first, const Fixed& second);
-		Fixed& operator-(const Fixed& first, const Fixed& second);
-		Fixed& operator*(const Fixed& first, const Fixed& second);
-		Fixed& operator/(const Fixed& first, const Fixed& second);
 #endif
