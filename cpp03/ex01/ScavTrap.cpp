@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:30:15 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:23:40 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:48:15 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ ScavTrap::ScavTrap(const ScavTrap& obj) {
 	setDp(obj._dp);
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap() {
+	std::cout << "scavtrap destroyer called" << std::endl;
+}
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
 	this->_name = obj._name;

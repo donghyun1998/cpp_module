@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:08:59 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:28:37 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:48:01 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ ClapTrap::ClapTrap(const ClapTrap& obj) { // getter에 const안붙히니까 멤�
 	setDp(obj._dp);
 }
 
-ClapTrap::~ClapTrap() {}
+ClapTrap::~ClapTrap() {
+	std::cout << "claptrap destroyer called" << std::endl;
+}
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
 	this->_name = obj._name;
 	this->_hp = obj._hp;
