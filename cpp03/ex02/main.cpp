@@ -6,19 +6,22 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:18 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:29:23 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/17 23:45:28 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ScavTrap	a("scavA");
-	ScavTrap	b(a);
+	FragTrap	a("fragA");
+	FragTrap	b(a);
+	b.setName("fragB");
+	FragTrap	c;
+	c = b;
+	c.setName("fragC");
 
-	b.setName("scavB");
-	a.attack("scavB");
-	b.takeDamage(a.getDp());
-	a.guardGate();
+	a.highFivesGuys();
+	b.highFivesGuys();
+	c.highFivesGuys();
 }

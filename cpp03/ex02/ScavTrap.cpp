@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:30:15 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:48:15 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/17 23:39:45 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap() {
 }
 
 ScavTrap::ScavTrap(const ScavTrap& obj) {
-	std::cout << "claptrap::[" << obj.getName() <<"] is born" <<  std::endl;
+	std::cout << "scavtrap::[" << obj.getName() <<"] is born" <<  std::endl;
 	setName(obj._name);
 	setHp(obj._hp);
 	setEp(obj._ep);
@@ -41,7 +41,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
 }
 
 ScavTrap::ScavTrap(std::string name) {
-	std::cout << "claptrap::[" << name <<"] is born" <<  std::endl;
+	std::cout << "scavtrap::[" << name <<"] is born" <<  std::endl;
 	setName(name);
 	setHp(100);
 	setEp(50);
@@ -53,6 +53,7 @@ void ScavTrap::guardGate(void) {
 	// 이게 단가...?
 }
 void ScavTrap::attack(std::string const& target) {
-	std::cout << this->getName() << " attacks "  << target << " with " << this->getDp() << "dp" << std::endl;
+	std::cout << this->getName() << " attacks "  << target
+				<< " with " << this->getDp() << "dp" << std::endl;
 	std::cout << "!!scavattack!!!" << std::endl;
 }
