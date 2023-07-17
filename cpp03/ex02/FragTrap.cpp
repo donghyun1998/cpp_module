@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 15:09:18 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:29:07 by donghyk2         ###   ########.fr       */
+/*   Created: 2023/07/17 23:30:22 by donghyk2          #+#    #+#             */
+/*   Updated: 2023/07/17 23:30:51 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int	main(void)
-{
-	ScavTrap	a("scavA");
-	ScavTrap	b(a);
-
-	b.setName("scavB");
-	a.attack("scavB");
-	b.takeDamage(a.getDp());
-	a.guardGate();
-}
+FragTrap::FragTrap() {}
+FragTrap::FragTrap(const FragTrap& obj) {}
+FragTrap::~FragTrap() {}
+FragTrap& FragTrap::operator=(const FragTrap& obj) {}
