@@ -1,4 +1,4 @@
-NAME			= ClapTrap
+NAME			= ScavTrap
 
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98

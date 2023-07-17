@@ -6,22 +6,22 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:08:59 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 20:44:02 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:18:33 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-std::string		ClapTrap::getName(void) {
+std::string		ClapTrap::getName(void) const {
 	return (this->_name);
 }
-unsigned int 	ClapTrap::getHp(void) {
+unsigned int 	ClapTrap::getHp(void) const {
 	return (this->_hp);
 }
-unsigned int 	ClapTrap::getEp(void) {
+unsigned int 	ClapTrap::getEp(void) const {
 	return (this->_ep);
 }
-unsigned int 	ClapTrap::getDp(void) {
+unsigned int 	ClapTrap::getDp(void) const {
 	return (this->_dp);
 }
 void			ClapTrap::setName(std::string s) {
@@ -40,6 +40,7 @@ void		 	ClapTrap::setDp(unsigned int num) {
 
 
 ClapTrap::ClapTrap() {
+	std::cout << "claptrap::[" << "null" <<"] is born" <<  std::endl;
 	setName("null");
 	setHp(10);
 	setEp(10);
@@ -47,6 +48,7 @@ ClapTrap::ClapTrap() {
 }
 
 ClapTrap::ClapTrap(const ClapTrap& obj) {
+	std::cout << "claptrap::[" << obj._name <<"] is born" <<  std::endl;
 	setName(obj._name);
 	setHp(obj._hp);
 	setEp(obj._ep);
@@ -63,6 +65,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
 }
 
 ClapTrap::ClapTrap(std::string name) {
+	std::cout << "claptrap::[" << name <<"] is born" <<  std::endl;
 	setName(name);
 	setHp(10);
 	setEp(10);
@@ -70,8 +73,11 @@ ClapTrap::ClapTrap(std::string name) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-	std::cout << this->getName() << " attacks "  << target << " with " << this->getDp() << "dp" << std::endl;
-	// ClapTrap <name> attacks <target>, causing <damage> points of damage!
+	if (this->getEp() == 0)
+		std::cout << this->getName() << " have no ep" << std::endl;
+	else
+		std::cout << this->getName() << " attacks "  << target
+					<< " with " << this->getDp() << "dp" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
