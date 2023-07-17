@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 15:09:18 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 17:14:18 by donghyk2         ###   ########.fr       */
+/*   Created: 2023/07/17 20:30:15 by donghyk2          #+#    #+#             */
+/*   Updated: 2023/07/17 20:52:59 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+// TODO: 투두 신기하다
 
-int	main(void)
-{
-	ClapTrap	a("clapA");
-	ClapTrap	b;
-	b = a;
-	b.setName("clapB");
-	b.beRepaired(1);
-	ClapTrap	c(b);
-
-	a.attack("enemy");
-	b.attack("enemy");
-	a.attack("B");
-	b.takeDamage(a.getDp());
-}
+ScavTrap::ScavTrap() {}
+ScavTrap::ScavTrap(const ScavTrap& obj) {}
+ScavTrap::~ScavTrap() {}
+ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {}
