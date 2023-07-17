@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:01 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:49:57 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/17 23:18:41 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap {
  public:
 	ClapTrap();
 	ClapTrap(const ClapTrap& obj);
-	virtual ~ClapTrap();
+	virtual ~ClapTrap(); // 업캐스팅 경우가 아니라 안해도 똑같이 동작함
 	ClapTrap& operator=(const ClapTrap& obj);
 
 	std::string		getName(void) const;
