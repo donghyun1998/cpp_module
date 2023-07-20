@@ -6,14 +6,14 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 23:30:25 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:46:02 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:15:15 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap {
  private:
