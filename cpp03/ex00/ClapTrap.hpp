@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:01 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:11:24 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:52:59 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 #include <string>
 #include <iostream>
-#include <string>
 
 class ClapTrap {
  private:
