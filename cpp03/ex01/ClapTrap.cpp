@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:08:59 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:48:01 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 16:53:35 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ ClapTrap::ClapTrap() {
 	setDp(0);
 }
 
-ClapTrap::ClapTrap(const ClapTrap& obj) { // getter에 const안붙히니까 멤버함수 호출이 안됐다;;
-	std::cout << "claptrap::[" << obj.getName() <<"] is born" <<  std::endl;
+ClapTrap::ClapTrap(const ClapTrap& obj) {
+	std::cout << "claptrap::[" << obj._name <<"] is born" <<  std::endl;
 	setName(obj._name);
 	setHp(obj._hp);
 	setEp(obj._ep);
@@ -56,7 +56,7 @@ ClapTrap::ClapTrap(const ClapTrap& obj) { // getter에 const안붙히니까 멤�
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "claptrap destroyer called" << std::endl;
+	std::cout << "claptrap::[" << this->getName() << "] is dead" << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
 	this->_name = obj._name;
@@ -76,11 +76,10 @@ ClapTrap::ClapTrap(std::string name) {
 
 void ClapTrap::attack(const std::string& target) {
 	if (this->getEp() == 0)
-		std::cout << this->getName() << " have no ep" << std::endl;
+		std::cout << "claptrap::" << this->getName() << " have no ep" << std::endl;
 	else
-		std::cout << this->getName() << " attacks "  << target
+		std::cout << "claptrap::" << this->getName() << " attacks "  << target
 					<< " with " << this->getDp() << "dp" << std::endl;
-	std::cout << "!!clapattack!!!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {

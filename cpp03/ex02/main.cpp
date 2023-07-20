@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:18 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:45:28 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:10:46 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ int	main(void)
 {
 	FragTrap	a("fragA");
 	FragTrap	b(a);
+	ClapTrap	*c = new FragTrap("fragC");
 	b.setName("fragB");
-	FragTrap	c;
-	c = b;
-	c.setName("fragC");
 
 	a.highFivesGuys();
 	b.highFivesGuys();
-	c.highFivesGuys();
+	// c->highFivesGuys();
+	delete c;
 }

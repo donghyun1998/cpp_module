@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:08:59 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 22:18:33 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 16:53:50 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ ClapTrap::ClapTrap(const ClapTrap& obj) {
 	setDp(obj._dp);
 }
 
-ClapTrap::~ClapTrap() {}
+ClapTrap::~ClapTrap() {
+	std::cout << "claptrap::[" << this->getName() << "] is dead" << std::endl;
+}
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
 	this->_name = obj._name;
 	this->_hp = obj._hp;
@@ -74,9 +76,9 @@ ClapTrap::ClapTrap(std::string name) {
 
 void ClapTrap::attack(const std::string& target) {
 	if (this->getEp() == 0)
-		std::cout << this->getName() << " have no ep" << std::endl;
+		std::cout << "claptrap::" << this->getName() << " have no ep" << std::endl;
 	else
-		std::cout << this->getName() << " attacks "  << target
+		std::cout << "claptrap::" << this->getName() << " attacks "  << target
 					<< " with " << this->getDp() << "dp" << std::endl;
 }
 

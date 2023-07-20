@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:30:15 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:39:45 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:08:03 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(const ScavTrap& obj) {
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "scavtrap destroyer called" << std::endl;
+	std::cout << "scavtrap::[" << this->getName() << "] is dead" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
@@ -53,7 +53,9 @@ void ScavTrap::guardGate(void) {
 	// 이게 단가...?
 }
 void ScavTrap::attack(std::string const& target) {
-	std::cout << this->getName() << " attacks "  << target
-				<< " with " << this->getDp() << "dp" << std::endl;
-	std::cout << "!!scavattack!!!" << std::endl;
+	if (this->getEp() == 0)
+		std::cout << "scavtrap::" << this->getName() << " have no ep" << std::endl;
+	else
+		std::cout << "scavtrap::" << this->getName() << " attacks "  << target
+					<< " with " << this->getDp() << "dp" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 23:30:22 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:43:27 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:09:17 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ FragTrap::FragTrap(const FragTrap& obj) {
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "fragtrap destroyer called" << std::endl;
+	std::cout << "fragtrap::[" << this->getName() << "] is dead" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& obj) {
@@ -48,10 +48,12 @@ FragTrap::FragTrap(std::string name) {
 	setDp(30);
 }
 void FragTrap::attack(std::string const& target) {
-	std::cout << this->getName() << " attacks "  << target
-				<< " with " << this->getDp() << "dp" << std::endl;
-	std::cout << "!!scavattack!!!" << std::endl;
+	if (this->getEp() == 0)
+		std::cout << "fragtrap::" << this->getName() << " have no ep" << std::endl;
+	else
+		std::cout << "fragtrap::" << this->getName() << " attacks "  << target
+					<< " with " << this->getDp() << "dp" << std::endl;
 }
 void FragTrap::highFivesGuys(void) {
-	std::cout << this->getName() << " high fives" << std::endl;
+	std::cout << "fragtrap::[" << this->getName() << "] high fives" << std::endl;
 }
