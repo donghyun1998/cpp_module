@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:01 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:18:41 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:54:51 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 #include <string>
 #include <iostream>
-#include <string>
 
 class ClapTrap {
  protected: // private은 자식클래스에서 접근 불가능하므로
