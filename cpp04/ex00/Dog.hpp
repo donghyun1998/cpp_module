@@ -6,14 +6,13 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:31:54 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/19 21:35:02 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/23 23:44:22 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-
 #ifndef DOG_HPP
 #define DOG_HPP
+#include "Animal.hpp"
 
 class Dog : public Animal {
  private:
@@ -23,7 +22,7 @@ class Dog : public Animal {
   ~Dog();
   Dog& operator=(const Dog& obj);
 
-  virtual void	makeSound();
+  virtual void	makeSound() const;
 };
 
 #endif
