@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:08:59 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/20 17:20:37 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:35:56 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ ClapTrap::ClapTrap(std::string name) {
 void ClapTrap::attack(const std::string& target) {
 	if (this->getEp() == 0)
 		std::cout << YELLOW << "claptrap::" << this->getName() << " have no ep" << RESET << std::endl;
+	else if (this->getHp() == 0)
+		std::cout << YELLOW << "claptrap::" << this->getName() << " have no hp" << RESET << std::endl;
 	else
 		std::cout << YELLOW << "claptrap::" << this->getName() << " attack "  << target
 					<< " with " << this->getDp() << "dp" << RESET << std::endl;
@@ -92,11 +94,13 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (this->_ep == 0) {
+	if (this->getEp() == 0)
 		std::cout <<  YELLOW << "claptrap::" << this->getName() << "have no ep" << std::endl;
-		return ;
+	else if (this->getHp() == 0)
+		std::cout << YELLOW << "claptrap::" << this->getName() << " have no hp" << RESET << std::endl;
+	else {
+		std::cout <<  YELLOW << "claptrap::" << _name << " + " << amount << "hp" << std::endl;
+		this->_hp += amount;
+		this->_ep -= 1;
 	}
-	std::cout <<  YELLOW << "claptrap::" << _name << " + " << amount << "hp" << std::endl;
-	this->_hp += amount;
-	this->_ep -= 1;
 }

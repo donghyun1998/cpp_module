@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:30:15 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/20 17:23:09 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:38:48 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void ScavTrap::guardGate(void) {
 void ScavTrap::attack(std::string const& target) {
 	if (this->getEp() == 0)
 		std::cout << BLUE << "scavtrap::" << this->getName() << " have no ep" << RESET << std::endl;
+	else if (this->getHp() == 0)
+		std::cout << BLUE << "scavtrap::" << this->getName() << " have no hp" << RESET << std::endl;
 	else
 		std::cout << BLUE << "scavtrap::" << this->getName() << " attack "  << target
 					<< " with " << this->getDp() << "dp" << RESET << std::endl;

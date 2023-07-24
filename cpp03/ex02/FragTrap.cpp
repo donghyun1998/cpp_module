@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 23:30:22 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/20 17:25:07 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:37:52 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ FragTrap::FragTrap(std::string name) {
 void FragTrap::attack(std::string const& target) {
 	if (this->getEp() == 0)
 		std::cout << GREEN << "fragtrap::" << this->getName() << " have no ep"<< RESET  << std::endl;
+	else if (this->getHp() == 0)
+		std::cout << GREEN << "fragtrap::" << this->getName() << " have no hp"<< RESET  << std::endl;
 	else
 		std::cout << GREEN << "fragtrap::" << this->getName() << " attack "  << target
 					<< " with " << this->getDp() << "dp" << RESET << std::endl;
