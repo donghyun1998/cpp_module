@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:31:40 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 16:52:38 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:21:32 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Dog::~Dog() {
 }
 Dog& Dog::operator=(const Dog& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 void	Dog::makeSound() const{
 	std::cout << "[dog] :: walwalwalwal" << std::endl;

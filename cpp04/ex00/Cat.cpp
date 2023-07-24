@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:31:12 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 16:52:01 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:21:25 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Cat::~Cat() {
 }
 Cat& Cat::operator=(const Cat& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 void	Cat::makeSound() const{
 	std::cout << "[cat] :: miyaong" << std::endl;

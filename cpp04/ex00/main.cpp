@@ -6,11 +6,16 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:21:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/23 23:43:05 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:20:37 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+// #include "WrongAnimal.hpp"
+// #include "WrongDog.hpp"
+// #include "WrongCat.hpp"
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:32:11 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:10:41 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:21:53 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ WrongAnimal::~WrongAnimal() {
 }
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 std::string	WrongAnimal::getType() const {
 	return (this->type);

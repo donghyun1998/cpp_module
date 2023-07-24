@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 20:07:21 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:07:35 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:22:00 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ WrongDog::~WrongDog() {
 }
 WrongDog& WrongDog::operator=(const WrongDog& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 void	WrongDog::makeSound() const{
 	std::cout << "[Wrongdog] :: walwalwalwal" << std::endl;

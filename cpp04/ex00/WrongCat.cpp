@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:34:37 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:08:05 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:21:57 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ WrongCat::~WrongCat() {
 }
 WrongCat& WrongCat::operator=(const WrongCat& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 void	WrongCat::makeSound() const{
 	std::cout << "[Wrongcat] :: miyaong" << std::endl;

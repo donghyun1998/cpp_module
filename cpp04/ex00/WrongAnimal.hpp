@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:33:04 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:06:55 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:20:45 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define WRONGANIMAL_HPP
 #include <iostream>
 #include <string>
-#include "WrongCat.hpp"
-#include "WrongDog.hpp"
 
 class WrongAnimal {
  protected:
