@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/19 21:23:14 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 18:29:11 by donghyk2         ###   ########.fr       */
+/*   Created: 2023/07/24 18:35:11 by donghyk2          #+#    #+#             */
+/*   Updated: 2023/07/24 20:09:57 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
+#include "WrongAnimal.hpp"
 
-#include <iostream>
-#include <string>
-#include "Dog.hpp"
-#include "Cat.hpp"
-
-class Animal {
- protected:
-  std::string	type;
+class WrongCat : public WrongAnimal {
+ private:
  public:
-  Animal();
-  Animal(const Animal& obj);
-  virtual ~Animal();
-  Animal& operator=(const Animal& obj);
+  WrongCat();
+  WrongCat(const WrongCat& obj);
+  ~WrongCat();
+  WrongCat& operator=(const WrongCat& obj);
 
-  virtual void	makeSound() const; // override 키워드 붙혀도 되는데 11버전임 클날뻔
-  std::string	getType() const;
+  virtual void	makeSound() const;
 };
 
 #endif

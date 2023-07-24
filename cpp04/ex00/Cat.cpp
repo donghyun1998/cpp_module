@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:31:12 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/23 23:32:42 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:52:01 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Cat::Cat() {
 	this->type = "Cat";
+	std::cout << "cat::[" << this->type << "] is born" << std::endl;
 } // 타입 cat으로 초기화됨
 Cat::Cat(const Cat& obj) {
 	this->type = obj.type;
+	std::cout << "cat::[" << this->type << "] is born" << std::endl;
 }
 Cat::~Cat() {
-	// 출력문 나중에
+	std::cout << "cat::[" << this->type << "] is die" << std::endl;
 }
 Cat& Cat::operator=(const Cat& obj) {
 	this->type = obj.type;
