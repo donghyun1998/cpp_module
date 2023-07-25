@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:35:11 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:09:57 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:53:58 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongCat : public WrongAnimal {
   ~WrongCat();
   WrongCat& operator=(const WrongCat& obj);
 
-  virtual void	makeSound() const;
+  void	makeSound() const;
 };
 
 #endif
