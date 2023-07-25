@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 23:30:22 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:37:52 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/25 15:37:49 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,7 @@ FragTrap::FragTrap(std::string name) {
 	setEp(100);
 	setDp(30);
 }
-void FragTrap::attack(std::string const& target) {
-	if (this->getEp() == 0)
-		std::cout << GREEN << "fragtrap::" << this->getName() << " have no ep"<< RESET  << std::endl;
-	else if (this->getHp() == 0)
-		std::cout << GREEN << "fragtrap::" << this->getName() << " have no hp"<< RESET  << std::endl;
-	else
-		std::cout << GREEN << "fragtrap::" << this->getName() << " attack "  << target
-					<< " with " << this->getDp() << "dp" << RESET << std::endl;
-}
+ // 어택 clap이랑 똑같이 하래네 서브젝트 죽일놈
 void FragTrap::highFivesGuys(void) {
 	std::cout << GREEN << "fragtrap::[" << this->getName() << "] high fives"<< RESET  << std::endl;
 }
