@@ -6,14 +6,12 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:30:18 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/17 23:19:03 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:09:06 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
-#define MAXHP 10
-#define MAXMP 10
 
 #include "ClapTrap.hpp" // 이거 안해서 상속 안됐음 근데 오류도 안뜸??왜지
 

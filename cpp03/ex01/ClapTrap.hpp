@@ -6,14 +6,12 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:01 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/20 17:16:43 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:08:48 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
-#define MAXHP 10
-#define MAXMP 10
 # define RESET		"\033[0m"
 # define YELLOW		"\033[1;93m"
 # define GREEN		"\033[1;92m"
