@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:23:14 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/24 20:20:12 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/26 20:08:06 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-
 
 class Animal {
  protected:
