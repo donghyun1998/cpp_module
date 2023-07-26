@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:09:01 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/25 14:08:20 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:28:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <iostream>
 
 class ClapTrap {
- protected: // private은 자식클래스에서 접근 불가능하므로
+ private:
 	std::string		_name;
 	unsigned int	_hp;
 	unsigned int	_ep;
