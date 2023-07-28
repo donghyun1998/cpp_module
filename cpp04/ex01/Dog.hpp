@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:31:54 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/26 20:08:21 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:18:47 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class Dog : public Animal {
  private:
+  Brain *brain;
  public:
   Dog();
   Dog(const Dog& obj);

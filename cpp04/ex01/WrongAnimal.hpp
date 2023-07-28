@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 18:33:04 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/26 20:02:11 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:24:42 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class WrongAnimal {
  public:
   WrongAnimal();
   WrongAnimal(const WrongAnimal& obj);
-  ~WrongAnimal();
+  virtual ~WrongAnimal();
   WrongAnimal& operator=(const WrongAnimal& obj);
 
-  void	makeSound() const; // override 키워드 붙혀도 되는데 11버전임 클날뻔
+  virtual void	makeSound() const; // override 키워드 붙혀도 되는데 11버전임 클날뻔
   std::string	getType() const;
 };
 

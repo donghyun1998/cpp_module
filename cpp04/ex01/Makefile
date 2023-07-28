@@ -3,7 +3,7 @@ NAME			= animal
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp
+SRC				= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp WrongDog.cpp Brain.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
