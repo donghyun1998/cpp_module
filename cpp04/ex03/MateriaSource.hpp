@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:05:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:15:11 by donghyk2         ###   ########.fr       */
+/*   Created: 2023/07/31 20:32:40 by donghyk2          #+#    #+#             */
+/*   Updated: 2023/07/31 20:43:40 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-#define ICHARACTER_HPP
-#include "AMateria.hpp" // 이거맞나
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
+#include "IMateriaSource.hpp"
 
-class ICharacter { // Interface의 I
+class MateriaSource : public IMateriaSource{
+ private:
+  AMateria*	skills[2];
  public:
-  virtual ~ICharacter() {}
-  virtual std::string const & getName() const = 0;
-  virtual void equip(AMateria* m) = 0;
-  virtual void unequip(int idx) = 0;
-  virtual void use(int idx, ICharacter& target) = 0;
+  MateriaSource();
+  MateriaSource(const MateriaSource& obj);
+  MateriaSource& operator=(const MateriaSource& obj);
+
+  virtual ~MateriaSource() {}
+  virtual void learnMateria(AMateria*);
+  virtual AMateria* createMateria(std::string const & type);
 };
 
 #endif

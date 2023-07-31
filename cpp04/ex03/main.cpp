@@ -6,15 +6,22 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:00:46 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 19:21:30 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:38:18 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
+
+void	f() { /////////////
+	system("leaks rpg");
+}
 
 int main()
 {
+atexit(f);////////
 IMateriaSource* src = new MateriaSource();
 src->learnMateria(new Ice());
 src->learnMateria(new Cure());

@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 19:39:04 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:04:18 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/31 20:22:15 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ Character::Character() {
 	this->name = "null";
 }
 Character::Character(const Character& obj) {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
+		this->inventory[i] = NULL;
 		if (obj.inventory[i] != NULL)
 			this->inventory[i] = obj.inventory[i]->clone(); // 요러면 깊지요
+	}
 	this->name = obj.name;
 }
 Character::~Character() {
@@ -28,8 +30,10 @@ Character::~Character() {
 }
 Character& Character::operator=(const Character& obj) {
 	for (int i = 0; i < 4; i++) {
-		if (this->inventory[i])
+		if (this->inventory[i]) {
 			delete this->inventory[i];
+			this->inventory[i] = NULL; // 클날뻔
+		}
 		if (obj.inventory[i] != NULL)
 			this->inventory[i] = obj.inventory[i]->clone(); // 요러면 깊지요
 	}
@@ -40,7 +44,7 @@ std::string const & Character::getName() const {
 }
 void Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
-		if (this->inventory[i] == nullptr) {
+		if (this->inventory[i] == NULL) {
 			std::cout << this->name << " equip " << m->getType() << std::endl;
 			this->inventory[i] = m->clone();
 			break ;

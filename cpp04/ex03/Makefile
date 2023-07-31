@@ -1,4 +1,4 @@
-NAME			= interface
+NAME			= rpg
 
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
