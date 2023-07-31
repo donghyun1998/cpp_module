@@ -6,9 +6,12 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:00:46 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/28 20:12:25 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:06:11 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main()
 {
