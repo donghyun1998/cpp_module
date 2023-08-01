@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 19:39:04 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:22:15 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:05:03 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,14 @@ Character& Character::operator=(const Character& obj) {
 			this->inventory[i] = obj.inventory[i]->clone(); // 요러면 깊지요
 	}
 	this->name = obj.name;
+	return (*this);
 }
 std::string const & Character::getName() const {
 	return (this->name);
 }
 void Character::equip(AMateria* m) {
+	if (!m)
+		return ;
 	for (int i = 0; i < 4; i++) {
 		if (this->inventory[i] == NULL) {
 			std::cout << this->name << " equip " << m->getType() << std::endl;

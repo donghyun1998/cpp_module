@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:01:20 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 18:59:04 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:04:30 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria { // Abstract 의 A
  protected:
   std::string type;
  public:
   AMateria();
   AMateria(const AMateria& obj);
-  ~AMateria();
+  virtual ~AMateria();
   AMateria& operator=(const AMateria& obj);
 
   AMateria(std::string const & type);

@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 20:35:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/01 21:41:37 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:14:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ MateriaSource::MateriaSource(const MateriaSource& obj) {
 			this->skills[i] = obj.skills[i]->clone();
 	}
 }
+MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++) {
+		if (this->skills[i])
+			delete this->skills[i]; // 여기서 해줘도 되나???
+	}
+	std::cout << "ms is dead" << std::endl;
+}
 MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 	for (int i = 0; i < 4; i++) {
 		if (this->skills[i]) {
@@ -33,11 +40,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 		if (obj.skills[i] != NULL)
 			this->skills[i] = obj.skills[i]->clone();
 	}
+	return (*this);
 }
 
-MateriaSource::~MateriaSource() {
-	// dd
-}
 void MateriaSource::learnMateria(AMateria* obj) { // 이거 왜 오브젝트 네임이 없지
 	for (int i = 0; i < 4; i++) {
 		if (this->skills[i]) {

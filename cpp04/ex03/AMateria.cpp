@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:09:18 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 16:12:07 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 22:57:51 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ AMateria::AMateria(const AMateria& obj) {
 AMateria::~AMateria() {}
 AMateria& AMateria::operator=(const AMateria& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 AMateria::AMateria(std::string const & type) {
 	this->type = type;
 }
 std::string const & AMateria::getType() const {
 	return (this->type);
-} //Returns the materia type
+}
 void AMateria::use(ICharacter& target) {
-	// ?? 뭐하라는겨
+	std::cout << "Can't do anything to " << target.getName() << std::endl;
 }

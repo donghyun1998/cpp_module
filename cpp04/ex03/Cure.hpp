@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 19:01:20 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 19:04:09 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:04:40 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Cure : public AMateria{
  public:
   Cure();
   Cure(const Cure& obj);
-  ~Cure();
+  virtual ~Cure();
   Cure& operator=(const Cure& obj);
 
   virtual AMateria* clone() const;

@@ -6,13 +6,15 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 19:30:49 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/01 18:57:12 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:03:35 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 #include "ICharacter.hpp"
+
+class AMateria;
 
 class Character : public ICharacter {
  private:

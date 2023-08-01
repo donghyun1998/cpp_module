@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 19:03:30 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 19:05:44 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:11:52 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Cure::~Cure() {
 }
 Cure& Cure::operator=(const Cure& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 AMateria* Cure::clone() const {
 	AMateria *res = new Cure();

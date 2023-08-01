@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 15:11:24 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 19:00:59 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:11:34 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Ice::~Ice() {
 }
 Ice& Ice::operator=(const Ice& obj) {
 	this->type = obj.type;
+	return (*this);
 }
 AMateria* Ice::clone() const {
 	AMateria *res = new Ice();

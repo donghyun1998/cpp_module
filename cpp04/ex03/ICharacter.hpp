@@ -6,13 +6,15 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:05:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:15:11 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 22:52:49 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 #include "AMateria.hpp" // 이거맞나
+
+class AMateria; // 인클루드 했잖아 왜...?
 
 class ICharacter { // Interface의 I
  public:
