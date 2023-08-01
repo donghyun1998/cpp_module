@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:00:46 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:38:18 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:45:20 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ tmp = src->createMateria("ice");
 me->equip(tmp);
 tmp = src->createMateria("cure");
 me->equip(tmp);
+// me->unequip(1); ///////
 ICharacter* bob = new Character("bob");
 me->use(0, *bob);
 me->use(1, *bob);

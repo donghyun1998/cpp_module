@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 20:35:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/01 23:14:43 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 23:41:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 }
 
 void MateriaSource::learnMateria(AMateria* obj) { // 이거 왜 오브젝트 네임이 없지
+	if (!obj)
+		return ;
 	for (int i = 0; i < 4; i++) {
-		if (this->skills[i]) {
-			skills[i] = obj->clone();
+		if (!this->skills[i]) {
+			skills[i] = obj;
 			break ;
 		}
 	}
