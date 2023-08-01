@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 19:30:49 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:09:11 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 18:57:12 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class Character : public ICharacter {
  private:
-  AMateria* inventory[4]; // 이거 ice cure가들어오면 터지지않나??
+  AMateria* inventory[4]; // 포인터의 배열이라 size 안터짐 헷갈 ㄴㄴ
   std::string	name;
  public:
   Character();

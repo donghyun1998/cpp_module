@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 20:32:40 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:43:40 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 18:04:56 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class MateriaSource : public IMateriaSource{
  private:
-  AMateria*	skills[2];
+  AMateria*	skills[4];
  public:
   MateriaSource();
   MateriaSource(const MateriaSource& obj);

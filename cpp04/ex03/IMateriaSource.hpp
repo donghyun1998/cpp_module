@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:09:35 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/07/31 20:16:04 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/01 18:53:20 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,3 @@ class IMateriaSource {
 };
 
 #endif
-
-IMateriaSource::~IMateriaSource() {}
