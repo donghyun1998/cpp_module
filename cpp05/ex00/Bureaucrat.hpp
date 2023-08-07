@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 02:13:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/07 15:45:06 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:42:05 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ class Bureaucrat {
   Bureaucrat& operator=(const Bureaucrat& obj);
   void upGrade();
   void downGrade(); // 이게 최선인가 1등급이 높아서 안 헷갈리게 이름 짓고싶은데
+  int getGrade() const;
+  std::string getName() const;
 };
+
+std::ostream& operator<<(std::ostream& o, Bureaucrat &obj);
 
 #endif

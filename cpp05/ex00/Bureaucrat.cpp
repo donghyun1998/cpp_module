@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 21:21:02 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/07 15:52:40 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:47:05 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
 Bureaucrat::Bureaucrat() : _name("null") {
 	this->_grade = 150; // TODO: 초기화 150으로 되는거 맞는지
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
-	const_cast<std::string&>(this->_name) = obj._name;
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name) {
 	this->_grade = obj._grade;
 }
 Bureaucrat::~Bureaucrat() {}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 	const_cast<std::string&>(this->_name) = obj._name;
 	this->_grade = obj._grade;
+	return (*this);
 }
 Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name) {
 	try {
@@ -39,18 +39,18 @@ Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name) {
 			throw (Bureaucrat::GradeTooHighException());
 	}
 	catch (std::exception &e) {
-		
+		std::cout << e.what() << std::endl;
 	}
 	this->_grade = grade;
 }
 void Bureaucrat::upGrade() {
 	try {
 		if (this->_grade == TOP)
-			throw (Bureaucrat::GradeTooHighException()); // 왜 ()붙혀야하는거지
+			throw (Bureaucrat::GradeTooHighException()); // ()안엔 argument가 들어감
 		this->_grade -= 1; // throw하면 아래구문 뛰어넘음
 	}
-	catch (const std::exception& e) { // throw 조건문 안에는 throw된 것의 형? 이 오는듯??
-		//dd
+	catch (const std::exception& e) { // throw 조건문 안에는 throw된 타입이 옴
+		std::cout << e.what() << std::endl;
 	}
 }
 void Bureaucrat::downGrade() {
@@ -60,6 +60,17 @@ void Bureaucrat::downGrade() {
 		this->_grade += 1;
 	}
 	catch (const std::exception& e) {
-		// dd
-	}
+		std::cout << e.what() << std::endl;
+	} // try catch블록을 밖으로 뺄가
+}
+int Bureaucrat::getGrade() const {
+	return (this->_grade);
+}
+std::string Bureaucrat::getName() const {
+	return (this->_name);
+}
+
+std::ostream& operator<<(std::ostream& o, Bureaucrat &obj) {
+	o << "<" << obj.getName() << ">, bureaucrat grade <" << obj.getGrade() << ">";
+	return (o);
 }
