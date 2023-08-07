@@ -6,17 +6,17 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 21:21:02 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/07 14:53:14 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:28:49 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-	return ("CustomException");
+	return ("TooHighException");
 }
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return ("CustomException");
+	return ("TooLowException");
 }
 
 Bureaucrat::Bureaucrat() : name("null") {
@@ -33,12 +33,21 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 }
 void Bureaucrat::upGrade() {
 	try {
-		this->grade -= 1;
-		if (this->grade < TOP)
-			throw (Bureaucrat::GradeTooHighException); // 어케하누
+		if (this->grade == TOP)
+			throw (Bureaucrat::GradeTooHighException()); // 왜 ()붙혀야하는거지
+		this->grade -= 1; // throw하면 아래구문 뛰어넘음
 	}
 	catch (const std::exception& e) { // throw 조건문 안에는 throw된 것의 형? 이 오는듯??
-
+		//dd
 	}
 }
-void Bureaucrat::downGrade() {} // 이게 최선인가 1등급이 높아서 안 헷갈리게 이름 짓고싶은 {}
+void Bureaucrat::downGrade() {
+	try {
+		if (this->grade == BOTTOM)
+			throw (Bureaucrat::GradeTooLowException());
+		this->grade += 1;
+	}
+	catch (const std::exception& e) {
+		// dd
+	}
+}
