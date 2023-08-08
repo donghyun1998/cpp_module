@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:33:48 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 17:04:50 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:32:31 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ const int			Form::getGradeToExecute() const {
 }
 
 void Form::beSigned(Bureaucrat &obj) {
-	if (obj.getGrade() > this->getGradeToSign())
+	if (obj.getGrade() > this->getGradeToSign()) {
+		obj.signForm(*this); // 일단 출력하고
 		throw (GradeTooLowException());
-	
+	}
 	this->_sign = true;
+	obj.signForm(*this); // 순서 맞춰야함sign먼저 바꿔야함
 }
 
-
-
-
-
 std::ostream& operator<<(std::ostream& o, Form &obj) {
-	o << "이거 왜 예시가 없냐.. 맘대로 하란건가";
+	o << "<" << obj.getName() << ">, sign <" << obj.getSign()
+		<< ">, gradeToSign <" << obj.getGradeToSign() << ">, gradeToExecute <"
+		<< obj.getGradeToExecute() << ">";
 	return (o);
 }

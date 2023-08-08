@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 21:21:02 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 17:09:53 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:25:04 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,12 @@ std::ostream& operator<<(std::ostream& o, Bureaucrat &obj) {
 }
 
 void Bureaucrat::signForm(Form	&obj) {
-	std::cout << "<" << this->_name << "> signed <"
+	if (obj.getSign() == true) {
+		std::cout << "<" << this->_name << "> signed <"
 				<< obj.getName() << ">" << std::endl;
-	
+	}
+	else {
+		std::cout << "<" << this->_name << "> couldn't sign <"
+				<< obj.getName() << ">" << std::endl;
+	}
 }
