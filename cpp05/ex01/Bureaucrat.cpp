@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 21:21:02 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/07 16:47:05 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:35:23 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,21 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 	return (*this);
 }
 Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name) {
-	try {
-		if (grade > BOTTOM)
-			throw (Bureaucrat::GradeTooLowException());
-		else if (grade < TOP)
-			throw (Bureaucrat::GradeTooHighException());
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	if (grade > BOTTOM)
+		throw (Bureaucrat::GradeTooLowException());
+	else if (grade < TOP)
+		throw (Bureaucrat::GradeTooHighException());
 	this->_grade = grade;
 }
 void Bureaucrat::upGrade() {
-	try {
-		if (this->_grade == TOP)
-			throw (Bureaucrat::GradeTooHighException()); // ()안엔 argument가 들어감
-		this->_grade -= 1; // throw하면 아래구문 뛰어넘음
-	}
-	catch (const std::exception& e) { // throw 조건문 안에는 throw된 타입이 옴
-		std::cout << e.what() << std::endl;
-	}
+	if (this->_grade == TOP)
+		throw (Bureaucrat::GradeTooHighException()); // ()안엔 argument가 들어감
+	this->_grade -= 1; // throw하면 아래구문 뛰어넘음
 }
 void Bureaucrat::downGrade() {
-	try {
-		if (this->_grade == BOTTOM)
-			throw (Bureaucrat::GradeTooLowException());
-		this->_grade += 1;
-	}
-	catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
-	} // try catch블록을 밖으로 뺄가
+	if (this->_grade == BOTTOM)
+		throw (Bureaucrat::GradeTooLowException());
+	this->_grade += 1;
 }
 int Bureaucrat::getGrade() const {
 	return (this->_grade);
