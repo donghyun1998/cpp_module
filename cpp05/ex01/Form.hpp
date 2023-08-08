@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:18:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 16:17:12 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:48:28 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "Bureaucrat.hpp"
 #define TOP 1
 #define BOTTOM 150
+
+class Bureaucrat;
 
 class Form {
  private: // 무조건 private

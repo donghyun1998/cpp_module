@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:33:48 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 16:37:08 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:04:50 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ const int			Form::getGradeToExecute() const {
 void Form::beSigned(Bureaucrat &obj) {
 	if (obj.getGrade() > this->getGradeToSign())
 		throw (GradeTooLowException());
+	
 	this->_sign = true;
 }
 

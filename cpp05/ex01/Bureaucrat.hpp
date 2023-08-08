@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 02:13:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 16:13:56 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:01:37 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <exception>
 #define TOP 1
 #define BOTTOM 150
+
+class Form;
 
 class Bureaucrat {
  private:
@@ -42,7 +44,7 @@ class Bureaucrat {
   void downGrade(); // 이게 최선인가 1등급이 높아서 안 헷갈리게 이름 짓고싶은데
   int getGrade() const;
   std::string getName() const;
-  void signForm(); // 추가
+  void signForm(Form &obj); // 추가
 };
 
 std::ostream& operator<<(std::ostream& o, Bureaucrat &obj);
