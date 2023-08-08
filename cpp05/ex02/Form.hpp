@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:18:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 18:44:18 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 19:58:21 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Form {
   };
   Form();
   Form(const Form& obj);
-  ~Form();
+  virtual ~Form();
   Form& operator=(const Form& obj);
 
   Form(std::string name, bool sign, int gradeToSign, int gradeToExecute);
@@ -46,6 +46,7 @@ class Form {
   int			getGradeToSign() const;
   int			getGradeToExecute() const;
   void beSigned(Bureaucrat &obj);
+  virtual void execute(Bureaucrat const & executor) const = 0;
 
 };
 std::ostream& operator<<(std::ostream& o, Form &obj);
