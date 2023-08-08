@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 02:13:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/07 16:42:05 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:37:09 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Bureaucrat {
  public:
   class GradeTooHighException : public std::exception { // 이거 맞나???
    public:
-    const char* what(void) const throw();
+    const char* what(void) const throw(); // throw 하지 않음을 나타내는 키워드
   };
   class GradeTooLowException : public std::exception { // 이거 맞나???
    public:
