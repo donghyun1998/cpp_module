@@ -3,7 +3,7 @@ NAME			= Bureaucrat
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp Bureaucrat.cpp
+SRC				= main.cpp Bureaucrat.cpp Form.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@

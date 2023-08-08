@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:18:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 16:48:28 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:44:18 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ class Form {
   ~Form();
   Form& operator=(const Form& obj);
 
-  const std::string	getName() const;
+  Form(std::string name, bool sign, int gradeToSign, int gradeToExecute);
+  std::string	getName() const;
   bool				getSign() const;
-  const int			getGradeToSign() const;
-  const int			getGradeToExecute() const;
+  int			getGradeToSign() const;
+  int			getGradeToExecute() const;
   void beSigned(Bureaucrat &obj);
 
 };

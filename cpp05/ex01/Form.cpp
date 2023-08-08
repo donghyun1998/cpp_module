@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:33:48 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 18:32:31 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:46:03 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ const char* Form::GradeTooLowException::what(void) const throw() {
 	return ("TooLowException");
 }
 
-Form::Form() :_name("null"), _gradeToExecute(150), _gradeToSign(140) { // 이건 젤 낮은 등급 form
+Form::Form() :_name("null"), _gradeToSign(140), _gradeToExecute(150) { // 이건 젤 낮은 등급 form
 	// form이 제출 서류? 느낌이라 결재 가능한 등급을 더 높게 해야 하지 않을까
 	_sign = false;
 }
 Form::Form(const Form& obj) :_name(obj._name)
-, _gradeToExecute(obj._gradeToExecute), _gradeToSign(obj._gradeToSign) {
+, _gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExecute) {
 	_sign = obj._sign;
 }
 Form::~Form() {}
@@ -33,17 +33,22 @@ Form& Form::operator=(const Form& obj) {
 	const_cast<int&>(this->_gradeToSign) = obj._gradeToSign;
 	const_cast<int&>(this->_gradeToExecute) = obj._gradeToExecute;
 	this->_sign = obj._sign;
+	return (*this);
 }
-const std::string	Form::getName() const {
+Form::Form(std::string name, bool sign, int gradeToSign, int gradeToExecute)
+	: _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+	this->_sign = sign;
+}
+std::string	Form::getName() const {
 	return (this->_name);
 }
 bool				Form::getSign() const {
 	return (this->_sign);
 }
-const int			Form::getGradeToSign() const {
+int			Form::getGradeToSign() const {
 	return (this->_gradeToSign);
 }
-const int			Form::getGradeToExecute() const {
+int			Form::getGradeToExecute() const {
 	return (this->_gradeToExecute);
 }
 
