@@ -19,7 +19,8 @@ const char* AForm::GradeTooLowException::what(void) const throw() {
 	return ("TooLowException");
 }
 
-AForm::AForm() :_name("null"), _gradeToSign(140), _gradeToExecute(150) { // 이건 젤 낮은 등급 Aform
+AForm::AForm() :_name("null"), _gradeToSign(140), _gradeToExecute(150) {
+	// 이건 젤 낮은 등급 Aform
 	// Aform이 제출 서류? 느낌이라 결재 가능한 등급을 더 높게 해야 하지 않을까
 	_sign = false;
 }
@@ -50,6 +51,27 @@ int			AForm::getGradeToSign() const {
 }
 int			AForm::getGradeToExecute() const {
 	return (this->_gradeToExecute);
+}
+
+void 	AForm::setName(std::string name) {
+	const_cast<std::string&>(this->_name) = name;
+}
+void 	AForm::setSign(bool sign) {
+	this->_sign = sign;
+}
+void 	AForm::setGradeToSign(int gradeToSign) {
+	if (gradeToSign < TOP)
+		throw (GradeTooHighException());
+	else if (gradeToSign > BOTTOM)
+		throw (GradeTooLowException());
+	const_cast<int&>(this->_gradeToSign) = gradeToSign;
+}
+void 	AForm::setGradeToExecute(int gradeToExecute) {
+	if (gradeToExecute < TOP)
+		throw (GradeTooHighException());
+	else if (gradeToExecute > BOTTOM)
+		throw (GradeTooLowException());
+	const_cast<int&>(this->_gradeToExecute) = gradeToExecute;
 }
 
 void AForm::beSigned(Bureaucrat &obj) {

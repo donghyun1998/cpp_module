@@ -35,6 +35,7 @@ class AForm {
    public:
     const char* what(void) const throw();
   };
+
   AForm();
   AForm(const AForm& obj);
   virtual ~AForm();
@@ -42,9 +43,13 @@ class AForm {
 
   AForm(std::string name, bool sign, int gradeToSign, int gradeToExecute);
   std::string	getName() const;
-  bool				getSign() const;
+  bool			getSign() const;
   int			getGradeToSign() const;
   int			getGradeToExecute() const;
+  void 			setName(std::string name);
+  void 			setSign(bool sign);
+  void 			setGradeToSign(int gradeToSign);
+  void 			setGradeToExecute(int gradeToExecute);
   void beSigned(Bureaucrat &obj);
   virtual void execute(Bureaucrat const & executor) const = 0;
 
