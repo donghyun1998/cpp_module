@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:40:52 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/09 19:08:31 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 19:45:47 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ static const char*	changeToCharp(std::string s) {
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	this->checkExecutable(*this, executor);
 	std::string	tree =
-							" _\n"
-							"| |\n"
-							"| |_ _ __ ___  ___\n"
-							"| __| '__/ _ \\/ _ \\n"
-							"| |_| | |  __/  __/\n"
-							" \\__|_|  \\___|\\___|\n";
+"       ###\n"
+"      #o###\n"
+"    #####o###\n"
+"   #o#\\#|#/###\n"
+"    ###\\|/#o#\n"
+"     # }|{  #\n"
+"       }|{\n";
+
 	std::string fileName = this->_target + "_shrubbery";
 	std::ofstream	output(changeToCharp(fileName));
 	if (output.fail())
