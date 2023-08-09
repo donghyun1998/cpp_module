@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 21:21:02 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/09 17:21:25 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:52:33 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void Bureaucrat::signForm(AForm	&obj) {
 	}
 }
 
-void executeForm(AForm const & form) {
-	/////////////////////////
+void Bureaucrat::executeForm(AForm const & form) {
+	form.execute(*this);
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
