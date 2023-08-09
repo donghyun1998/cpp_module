@@ -52,7 +52,7 @@ class AForm {
   void 			setGradeToExecute(int gradeToExecute);
   void beSigned(Bureaucrat &obj);
   virtual void execute(Bureaucrat const & executor) const = 0;
-
+  void  checkExecutable(const AForm& form, const Bureaucrat &bur) const;
 };
 std::ostream& operator<<(std::ostream& o, AForm &obj);
 #endif

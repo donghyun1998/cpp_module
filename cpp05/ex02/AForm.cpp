@@ -83,6 +83,11 @@ void AForm::beSigned(Bureaucrat &obj) {
 	obj.signForm(*this); // 순서 맞춰야함sign먼저 바꿔야함
 }
 
+void  AForm::checkExecutable(const AForm& form, const Bureaucrat &bur) const{
+	if (form.getGradeToExecute() < bur.getGrade())
+		throw (GradeTooLowException());
+}
+
 std::ostream& operator<<(std::ostream& o, AForm &obj) {
 	o << obj.getName() << ", sign " << obj.getSign()
 		<< ", gradeToSign " << obj.getGradeToSign() << ", gradeToExecute "

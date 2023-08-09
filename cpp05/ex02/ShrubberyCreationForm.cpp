@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:40:52 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/09 17:22:09 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:47:55 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static const char*	changeToCharp(std::string s) {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+	this->checkExecutable(*this, executor);
 	std::string	tree =
 							" _\n"
 							"| |\n"

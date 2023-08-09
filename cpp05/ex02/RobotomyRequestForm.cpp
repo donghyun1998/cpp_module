@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:31:40 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/09 17:21:48 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:47:51 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	this->_target = obj._target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) {
-
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : RobotomyRequestForm() {
+	this->_target = target;
 }
 void  RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+	this->checkExecutable(*this, executor);
 	int	luck = rand() % 2;
 
 	std::cout << "위이이이이ㅣㅇ잉ㅇ잉ㅇㅇㅇ잉" << std::endl;
