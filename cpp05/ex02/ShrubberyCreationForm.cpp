@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:40:52 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/09 15:39:38 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:45:58 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	this->setGradeToSign(obj.getGradeToSign()); // constcast로 우회해서 setter하는게 맞는지..
 	this->setGradeToExecute(obj.getGradeToExecute()); // setter안쓰고 하는 방법이 있나??
 }
+static const char*	changeToCharp(std::string s) {
+	return (s.c_str());
+}
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	std::string	tree =
@@ -43,8 +46,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 							"| __| '__/ _ \/ _ \\n"
 							"| |_| | |  __/  __/\n"
 							" \__|_|  \___|\___|\n";
-
-	std::ofstream	output("<" + executor.getName() + ">_shrubbery");
+	std::string fileName = "<" + executor.getName() + ">_shrubbery";
+	std::ofstream	output(changeToCharp(fileName));
 	if (output.fail())
 		throw (OutfileException());
 	output << tree << std::endl;
