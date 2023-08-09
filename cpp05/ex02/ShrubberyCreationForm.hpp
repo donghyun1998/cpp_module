@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:38:14 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/09 15:30:23 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:53:24 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class ShrubberyCreationForm : public AForm{
  private:
+ std::string  _target;
  public:
    class OutfileException : public std::exception {
    public:
@@ -27,6 +28,7 @@ class ShrubberyCreationForm : public AForm{
   virtual ~ShrubberyCreationForm();
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
 
+  ShrubberyCreationForm(std::string target);
   virtual void execute(Bureaucrat const & executor) const;
 };
 

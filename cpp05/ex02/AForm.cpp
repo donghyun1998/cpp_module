@@ -84,8 +84,8 @@ void AForm::beSigned(Bureaucrat &obj) {
 }
 
 std::ostream& operator<<(std::ostream& o, AForm &obj) {
-	o << "<" << obj.getName() << ">, sign <" << obj.getSign()
-		<< ">, gradeToSign <" << obj.getGradeToSign() << ">, gradeToExecute <"
-		<< obj.getGradeToExecute() << ">";
+	o << obj.getName() << ", sign " << obj.getSign()
+		<< ", gradeToSign " << obj.getGradeToSign() << ", gradeToExecute "
+		<< obj.getGradeToExecute();
 	return (o);
 }

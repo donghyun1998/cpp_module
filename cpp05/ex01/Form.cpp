@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:33:48 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/08 18:46:03 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:23:37 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void Form::beSigned(Bureaucrat &obj) {
 }
 
 std::ostream& operator<<(std::ostream& o, Form &obj) {
-	o << "<" << obj.getName() << ">, sign <" << obj.getSign()
-		<< ">, gradeToSign <" << obj.getGradeToSign() << ">, gradeToExecute <"
-		<< obj.getGradeToExecute() << ">";
+	o << obj.getName() << ", sign " << obj.getSign()
+		<< ", gradeToSign " << obj.getGradeToSign() << ", gradeToExecute "
+		<< obj.getGradeToExecute();
 	return (o);
 }
