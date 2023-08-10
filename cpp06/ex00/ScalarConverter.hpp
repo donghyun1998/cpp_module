@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:51:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/10 19:03:32 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/11 01:02:07 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class ScalarConverter { // static class는 static 멤버 변수함수 만 있어
   ScalarConverter& operator=(const ScalarConverter& obj);
  public:
 
-  static void	toChar(const std::string& input);
-  static void	toInt(const std::string& input);
-  static void	toFloat(const std::string& input);
-  static void	toDouble(const std::string& input);
+  static void	printChar(const std::string& input);
+  static void	printInt(const std::string& input);
+  static void	printFloat(const std::string& input);
+  static void	printDouble(const std::string& input);
   static void convert(const std::string& input); //리터럴이라 const로받아야함
 };
 

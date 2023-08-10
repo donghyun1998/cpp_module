@@ -6,13 +6,14 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:25:32 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/10 19:03:49 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/11 01:12:24 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-void	ScalarConverter::toChar(const std::string& input) {
+void	ScalarConverter::printChar(const std::string& input) {
+	// TODO: nan, nanf +-inf, +-inff ㅅㅂ
 	if (input.length() != 1) {
 		std::cout << "'*'" << std::endl;
 		return ;
@@ -21,16 +22,18 @@ void	ScalarConverter::toChar(const std::string& input) {
 		std::cout << "char: Non displayable" << std::endl;
 		return ;
 	}
-	
+	std::cout << "char: " << static_cast<char>(input[0]) << std::endl;
 }
-void	ScalarConverter::toInt(const std::string& input) {}
-void	ScalarConverter::toFloat(const std::string& input) {}
-void	ScalarConverter::toDouble(const std::string& input) {}
+void	ScalarConverter::printInt(const std::string& input) {
+
+}
+void	ScalarConverter::printFloat(const std::string& input) {}
+void	ScalarConverter::printDouble(const std::string& input) {}
 
 
 void ScalarConverter::convert(const std::string& input) {
-	toChar(input);
-	toInt(input);
-	toFloat(input);
-	toDouble(input);
+	printChar(input);
+	printInt(input);
+	printFloat(input);
+	printDouble(input);
 }
