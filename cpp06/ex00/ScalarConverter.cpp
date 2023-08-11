@@ -6,23 +6,25 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:25:32 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/11 01:12:24 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/11 20:20:46 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+static	bool	isNanInff(const std::string& input) {
+	if (input == "nan" || input == "nanf" || input == "+inf" || input == "-inf"
+		|| input == "+inff" || input == "-inff") {
+			return (true);
+		}
+	return (false);
+}
+
+
 void	ScalarConverter::printChar(const std::string& input) {
-	// TODO: nan, nanf +-inf, +-inff ㅅㅂ
-	if (input.length() != 1) {
-		std::cout << "'*'" << std::endl;
-		return ;
-	}
-	if (!isprint(input[0])) {
-		std::cout << "char: Non displayable" << std::endl;
-		return ;
-	}
-	std::cout << "char: " << static_cast<char>(input[0]) << std::endl;
+	if (isNanInff(input) == true)
+		std::cout << "char: impossible" << std::endl;
+	
 }
 void	ScalarConverter::printInt(const std::string& input) {
 
