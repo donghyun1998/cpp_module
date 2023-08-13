@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:25:32 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/13 14:28:02 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/13 15:52:12 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,54 +17,53 @@ static	double	changeStringToDouble(const std::string& input) {
 	const char* cStr = input.c_str();
     return (std::atof(cStr));
 }
-char changeDoubleToChar(double value) {
-	return (static_cast<char>(value));
-}
-int changeDoubleToInt(double value) {
-	return (static_cast<int>(value));
-}
-float changeDoubleToFloat(double value) {
-	return (static_cast<float>(value));
-}
-double changeDoubleToDouble(double value) {
-	return (static_cast<double>(value));
-}
-void	ScalarConverter::printChar(const char c) {
+void	ScalarConverter::printChar() {
 	if (std::isnan(_value) || std::isinf(_value))
 		std::cout << "char: impossible" << std::endl;
 	else if (!std::isprint(_value))
 		std::cout << "char: Non displayable" << std::endl;
 	else if (std::isprint(_value))
-		std::cout << "char: \'" << c << '\'' << std::endl;
+		std::cout << "char: \'" << static_cast<char>(_value) << '\'' << std::endl;
 }
-void	ScalarConverter::printInt(const int d) {
-	if (std::isnan(_value) || std::isinf(_value))
+void	ScalarConverter::printInt() {
+	int	valueInt = static_cast<int>(_value);
+
+	if (std::isnan(_value) || std::isinf(_value)
+		|| static_cast<double>(valueInt) != _value) // 오버플로우
 		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout << "int: " << d << std::endl;
-	// TODO: int 에서 inf 어카지
+		std::cout << "int: " << valueInt << std::endl;
 }
-// void	ScalarConverter::printFloat(const std::string& input) {}
-// void	ScalarConverter::printDouble(const std::string& input) {}
+void	ScalarConverter::printFloat() {
+	float	valueFloat = static_cast<float>(_value);
+	int	valueInt = static_cast<int>(_value);
 
-// static	bool	isValidNum(const std::string input) {
-// 	int	lastIdx = input.size() - 1;
+	if (std::isnan(_value))
+		std::cout << "float: nanf" << std::endl;
+	else if (std::isinf(_value))
+		std::cout << "float: inff" << std::endl;
+	else if (valueFloat - valueInt == 0.0f) //소수점 있을때
+		std::cout << "float: " << valueFloat << ".0f" << std::endl;
+	else
+		std::cout << "float: " << valueFloat << 'f' << std::endl;
+}
+void	ScalarConverter::printDouble() {
+	int	valueInt = static_cast<int>(_value);
 
-// 	if (!std::isalnum(input[lastIdx]))
-// 		return (false);
-// 	for (int i = 1; i < lastIdx; i++)
-// 		if (!std::isalnum(input[i]) && input[i] != '.')
-// 			return (false);
-// 	if (!std::isalnum(input[lastIdx]) && input[lastIdx] != 'f')
-// 		return (false);
-// 	return (true);
-// } // 쓸모가 없누 어차피 유효한 리터럴만 들어온다고 써있음
-
+	if (std::isnan(_value))
+		std::cout << "double: nan" << std::endl;
+	else if (std::isinf(_value))
+		std::cout << "double: inf" << std::endl;
+	else if (_value - valueInt == 0.0)
+		std::cout << "double: " << _value << ".0" << std::endl;
+	else
+		std::cout << "double: " << _value << std::endl;
+}
 
 void ScalarConverter::convert(const std::string& input) {
 	_value = changeStringToDouble(input);
-	printChar(changeDoubleToChar(_value));
-	printInt(changeDoubleToInt(_value));
-	// printFloat(input);
-	// printDouble(input);
+	printChar();
+	printInt();
+	printFloat();
+	printDouble();
 }
