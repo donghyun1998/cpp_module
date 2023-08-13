@@ -1,4 +1,4 @@
-NAME			= cast
+NAME			= ScalarConverter
 
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
