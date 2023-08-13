@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:51:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/13 15:26:52 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/13 16:09:40 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cstdlib> // atof땜시
 
 class ScalarConverter { // static class는 static 멤버 변수함수 만 있어야함
  private:
