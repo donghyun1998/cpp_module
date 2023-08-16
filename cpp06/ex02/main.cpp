@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:24:01 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/16 18:15:28 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:26:55 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <iostream>
+#include <ctime>
+#include <stdexcept> // bad_Cast
 
 Base * generate(void) {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
