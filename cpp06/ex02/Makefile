@@ -3,7 +3,7 @@ NAME			= Base
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRC				= main.cpp Base.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
