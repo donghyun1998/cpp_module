@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:45:03 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/14 15:54:05 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:29:07 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@
 #define A_HPP
 
 class A : public Base {
- private:
- public:
-  virtual ~A();
-  Base * generate(void);
-  void identify(Base* p);
-  void identify(Base& p);
-
 };
 
 #endif
