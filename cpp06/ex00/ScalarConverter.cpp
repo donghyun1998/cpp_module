@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:25:32 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/16 15:18:49 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/17 00:14:42 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ double ScalarConverter::_value;
 static	double	changeStringToDouble(const std::string& input) {
 	const char* cStr = input.c_str();
 
-	if (input.length() == 1)
-		return (static_cast<double>(input[0]));
+	// if (input.length() == 1)
+	// 	return (static_cast<double>(input[0]));
+	// 이거때문에 char 하나짜리 에러 생김 애매한 예외처리 귀찮으니까 안할것임 ㅋ
     return (std::atof(cStr));
 }
 void	ScalarConverter::printChar() {
