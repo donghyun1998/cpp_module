@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:41:15 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/17 18:56:30 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:10:47 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #define WHATEVER_HPP
 #include <iostream>
 #include <string>
-template <typename T>
 
-void	swap(T a, T b) {
+template <typename T>
+void	swap(T &a, T &b) {
 	T temp;
 	temp = a;
 	a = b;
 	b = temp;
 }
-template <typename T> // 매번 써줘야하나 원래?? 오류나는디
+template <typename T>
 T	min(T a, T b) {
 	if (a > b)
 		return (b);
