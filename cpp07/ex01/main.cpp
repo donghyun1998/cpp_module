@@ -6,12 +6,11 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:05:39 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/18 16:08:42 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:29:42 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
-#include <iostream>
 
 template<typename T>
 void	add(T& arr) {
