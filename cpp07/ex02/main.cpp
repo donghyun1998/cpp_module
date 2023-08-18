@@ -6,12 +6,14 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:28:13 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/18 21:03:36 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/18 21:06:26 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
+#include <ctime>
+#include <cstdlib> // srand땜시
 
 #define MAX_VAL 750
 
