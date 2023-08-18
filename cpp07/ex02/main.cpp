@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:28:13 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/18 18:38:19 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/18 21:00:36 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
+
+// void    f(void) {
+//     system("leaks array");
+// }
 int main(int, char**)
 {
+    // atexit(f);
+
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
