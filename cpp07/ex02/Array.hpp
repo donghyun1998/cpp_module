@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:14:19 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/18 19:20:33 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/18 21:08:16 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ class Array {
  private:
   T* _array;
   std::size_t _size;
-  class Over_size : public std::exception {
+  class Invalid_index : public std::exception {
     virtual const char* what() const throw() {
-        return ("over size");
+        return ("invalid index");
     }
   };
-  class Invalid_access : public std::exception {
+  class Invalid_address : public std::exception {
     virtual const char* what() const throw() {
-        return ("invalid access");
+        return ("invalid address");
     }
   };
  public:
@@ -64,9 +64,9 @@ class Array {
   }
   T& operator[](std::size_t obj) {
     if (this->_array == NULL)
-      throw (Invalid_access());
+      throw (Invalid_address());
     if (this->_size <= obj)
-      throw (Over_size());
+      throw (Invalid_index());
     return (this->_array[obj]);
   }
   std::size_t size() const {
