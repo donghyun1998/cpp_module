@@ -3,7 +3,7 @@ NAME			= array
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp Array.tpp
+SRC				= main.cpp
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
