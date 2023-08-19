@@ -1,19 +1,19 @@
 NAME			= easyfind
 
-CC				= @c++
-CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
+CXX				= @c++
+CXXFLAGS			= -Wall -Werror -Wextra -std=c++11
 
 SRC				= main.cpp
 
 %.o: %.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 OBJS			= $(SRC:.cpp=.o)
 
 $(NAME): $(OBJS)
-	$(CC) $(CXXFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
 	@rm -f $(OBJS)
