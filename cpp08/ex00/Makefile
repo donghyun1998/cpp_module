@@ -1,4 +1,4 @@
-NAME			= 
+NAME			= easyfind
 
 CC				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
