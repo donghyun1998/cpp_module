@@ -6,15 +6,13 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 21:19:53 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/21 00:35:24 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:20:26 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <stack>
 #include <deque>
 #include <list>
 
