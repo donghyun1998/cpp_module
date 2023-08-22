@@ -1,9 +1,9 @@
-NAME			=
+NAME			= btc
 
 CXX				= @c++
 CXXFLAGS			= -Wall -Werror -Wextra -std=c++98
 
-SRC				= main.cpp
+SRC				= main.cpp BitcoinExchange.cpp
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
