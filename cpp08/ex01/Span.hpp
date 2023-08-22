@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 00:43:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/21 18:26:08 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:02:06 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <vector>
 #include <exception>
+#include <algorithm>
 
 class Span {
  private:
