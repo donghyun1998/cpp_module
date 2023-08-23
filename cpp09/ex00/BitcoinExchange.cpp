@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/23 20:12:57 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/23 20:20:10 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ const char* BitcoinExchange::WrongDb::what() const throw() {
 const char* BitcoinExchange::WrongInput::what() const throw() {
 	return ("WrongInput");
 }
-
-BitcoinExchange::BitcoinExchange() {} // filename private로 가지고 있어야하나...
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj) {}
-BitcoinExchange::~BitcoinExchange() {}
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {}
-
 static double changeToDouble(std::string value) {
 	return (std::atof(value.c_str()));
 }
@@ -54,9 +48,17 @@ void BitcoinExchange::parseDb(const char* dbFileName) {
 	}
 	dbFile.close();
 }
-// void BitcoinExchange::checkInputLine(std::string line) {
-
-// }
+static bool checkValue(double value) {
+	if (value < 0) {
+		std::cout << "not a positive number" << std::endl;
+		return (false);
+	}
+	if (value > 1000) {
+		std::cout << "too large a number" << std::endl;
+		return (false);
+	}
+	return (true);
+}
 void BitcoinExchange::printOutputByLine(std::string line) {
 	std::size_t seperatorIdx = line.find('|');
 	if (seperatorIdx == std::string::npos || seperatorIdx <= 0
@@ -67,15 +69,8 @@ void BitcoinExchange::printOutputByLine(std::string line) {
 	std::string date = line.substr(0, seperatorIdx);
 	double	value = changeToDouble(line.substr(seperatorIdx + 1));
 
-	if (value < 0) {
-		std::cout << "not a positive number" << std::endl;
+	if (checkValue(value) == false)
 		return ;
-	}
-	if (value > 1000) {
-		std::cout << "too large a number" << std::endl;
-		return ;
-	}
-
 	std::map<std::string, double>::iterator it = this->_db.begin();
 	while (it->first < date)
 		it++;
