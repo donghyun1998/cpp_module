@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:27:46 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/23 16:57:35 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:03:44 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ int	main(int argc, char** argv) {
 		return (1);
 	}
 	BitcoinExchange	bit("data.csv", argv[1]);
+
 }
