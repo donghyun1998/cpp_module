@@ -6,49 +6,36 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/23 17:14:36 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/23 20:12:57 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 const char* BitcoinExchange::WrongDb::what() const throw() {
-		return ("WrongDB");
+	return ("WrongDB");
+}
+const char* BitcoinExchange::WrongInput::what() const throw() {
+	return ("WrongInput");
 }
 
-// BitcoinExchange::BitcoinExchange() {}
-// BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj) {}
-// BitcoinExchange::~BitcoinExchange() {}
-// BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {}
-
-static void	checkDate(std::string input) { // - 2개인지
-	std::size_t	startIdx = 0, endIdx = 0;
-	std::string year, month, date;
-	for (int i = 0; i < 2; i++) {
-		endIdx = input.find('-', startIdx);
-	}
-
-	// error throw
-}
-
-static void	checkValue(std::string value) {
-	 // error throw
-	 (void)value;
-}
+BitcoinExchange::BitcoinExchange() {} // filename private로 가지고 있어야하나...
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj) {}
+BitcoinExchange::~BitcoinExchange() {}
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {}
 
 static double changeToDouble(std::string value) {
-	checkValue(value);
 	return (std::atof(value.c_str()));
 }
 
-void	BitcoinExchange::addLineToMap(std::string line) {
-	std::size_t comma = line.find(",");
-	if (comma <= 0 || comma >= line.size() - 1)
+void	BitcoinExchange::addLineToMap(std::string line, std::fstream& dbFile) {
+	std::size_t commaIdx = line.find(",");
+	if (commaIdx <= 0 || commaIdx >= line.size() - 1) {
+		dbFile.close();
 		throw (WrongDb());
-	std::string date = line.substr(0, comma);
-	checkDate(date);
-	double value = changeToDouble(line.substr(comma + 1)); // 이 안에서 체크함
-
+	}
+	std::string date = line.substr(0, commaIdx);
+	double value = changeToDouble(line.substr(commaIdx + 1)); // 이 안에서 체크함
 	_db[date] = value;
 }
 
@@ -57,30 +44,67 @@ void BitcoinExchange::parseDb(const char* dbFileName) {
 	std::string	line;
 
 	std::getline(dbFile, line);
-	std::cout << "gdgdg" << std::endl;
-	if (line != "date,exchange_rate")
+	if (line != "date,exchange_rate") {
+		dbFile.close();
 		throw (WrongDb());
-
+	}
 	while (std::getline(dbFile, line)) {
 		if (!dbFile.eof())
-			addLineToMap(line);
+			addLineToMap(line, dbFile);
 	}
+	dbFile.close();
 }
+// void BitcoinExchange::checkInputLine(std::string line) {
+
+// }
+void BitcoinExchange::printOutputByLine(std::string line) {
+	std::size_t seperatorIdx = line.find('|');
+	if (seperatorIdx == std::string::npos || seperatorIdx <= 0
+		|| seperatorIdx >= line.size() - 1) {
+		std::cout << "bad input -> " << line << std::endl;
+		return ;
+	}
+	std::string date = line.substr(0, seperatorIdx);
+	double	value = changeToDouble(line.substr(seperatorIdx + 1));
+
+	if (value < 0) {
+		std::cout << "not a positive number" << std::endl;
+		return ;
+	}
+	if (value > 1000) {
+		std::cout << "too large a number" << std::endl;
+		return ;
+	}
+
+	std::map<std::string, double>::iterator it = this->_db.begin();
+	while (it->first < date)
+		it++;
+	it--; // 하위 날짜
+	std::cout << date << "-> " << value << " = " << it->second * value << std::endl;
+}
+
+void BitcoinExchange::parseInput(char* inputFileName) {
+	std::fstream inputFile(inputFileName);
+	std::string	line;
+
+	std::getline(inputFile, line);
+	if (line != "date | value") {
+		inputFile.close();
+		throw (WrongInput());
+	}
+	while (std::getline(inputFile, line)) {
+		if (inputFile.eof())
+			break ;
+		printOutputByLine(line);
+	}
+	inputFile.close();
+}
+
+
 BitcoinExchange::BitcoinExchange(const char* dbFileName, char* inputFileName) {
 	try {
 		parseDb(dbFileName);
-		// std::fstream input(inputFileName);
-		// std::string	line;
-		// while (std::getline(input, line)) {
-		// 	if (!input.eof())
-		// 		;
-		(void)inputFileName;
-		//test
-		std::map<std::string, double>::iterator it = _db.begin();
-		while (it != _db.end()) {
-			std::cout << it->first << " | " << it->second << std::endl;
-			it++;
-		}
+		parseInput(inputFileName);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
