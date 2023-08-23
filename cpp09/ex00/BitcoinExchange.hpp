@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/23 00:43:07 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:28:02 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <map>
 
 class BitcoinExchange {
  private:
+  std::map<std::string, double>  _db;
  public:
   BitcoinExchange();
   BitcoinExchange(const BitcoinExchange& obj);
