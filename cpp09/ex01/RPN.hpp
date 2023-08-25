@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:33:45 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 16:41:48 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:55:24 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class RPN {
   class error : public std::exception {
     virtual const char* what() const throw();
   };
+
   std::stack<int> _s;
-  // std::string _input;
 
   std::string	getToken(int startIdx);
   void  checkInput(std::string input);
