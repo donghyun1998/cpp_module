@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 20:18:46 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:31:42 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 const char* RPN::error::what() const throw() {
 	return ("error");
+}
+
+const char* RPN::devideByZero::what() const throw() {
+	return ("devide by zero");
 }
 
 RPN::~RPN() {}
@@ -66,6 +70,8 @@ void  RPN::multiply() {
 }
 void  RPN::devide() {
 	int b = _s.top();
+	if (b == 0)
+		throw (devideByZero());
 	_s.pop();
 	int	a = _s.top();
 	_s.pop();
