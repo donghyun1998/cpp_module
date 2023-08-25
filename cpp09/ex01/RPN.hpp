@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:33:45 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 20:30:59 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:41:32 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 class RPN {
  private:
-  class error : public std::exception {
+  class Error : public std::exception {
     virtual const char* what() const throw();
   };
-  class devideByZero : public std::exception {
+  class DevideByZero : public std::exception {
     virtual const char* what() const throw();
   };
 
