@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/23 20:20:10 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:31:51 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ const char* BitcoinExchange::WrongDb::what() const throw() {
 const char* BitcoinExchange::WrongInput::what() const throw() {
 	return ("WrongInput");
 }
+BitcoinExchange::~BitcoinExchange() {}
 static double changeToDouble(std::string value) {
 	return (std::atof(value.c_str()));
 }

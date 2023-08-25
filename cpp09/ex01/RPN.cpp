@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 16:53:32 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:33:39 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 const char* RPN::error::what() const throw() {
 	return ("error");
 }
+
+RPN::~RPN() {}
 
 static bool isOperator(char c) {
 	if (c == '+' || c == '-' || c == '*' || c == '/')
