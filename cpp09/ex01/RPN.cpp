@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 18:33:39 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:18:46 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void  RPN::devide() {
 	_s.push(a / b);
 }
 
-void	RPN::calculate(std::string input, int i) {
-	switch (input[i]) {
+void	RPN::calculate(char input) {
+	switch (input) {
 		case '+' :
 			plus();
 			break ;
@@ -87,7 +87,7 @@ void	RPN::calculate(std::string input, int i) {
 			devide();
 			break ;
 		default : // 숫자 들어온겨
-			_s.push(input[i] - '0');
+			_s.push(input - '0');
 			break ;
 	}
 }
@@ -97,7 +97,7 @@ RPN::RPN(std::string input) {
 	try {
 		checkInput(input);
 		for (std::size_t i = 0; i < input.size(); i += 2)
-			calculate(input, i);
+			calculate(input[i]);
 		std::cout << _s.top() << std::endl;
 	}
 	catch (std::exception &e) {

@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:33:45 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 18:33:29 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:18:38 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class RPN {
 
   std::string	getToken(int startIdx);
   void  checkInput(std::string input);
-  void	calculate(std::string input, int i);
+  void	calculate(char input);
   void  plus();
   void  minus();
   void  multiply();
