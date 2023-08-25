@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:14:19 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/18 21:08:16 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/25 21:01:30 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Array {
   };
  public:
   Array() {
-    this->size = 0;
+    this->_size = 0;
     this->_array = NULL;
   }
   Array(unsigned int n) {
@@ -59,7 +59,10 @@ class Array {
       this->_array = NULL;
       this->_size = 0;
     }
-    this = Array(obj); // 개깔끔
+    this->_size = obj._size;
+    this->_array = new T[obj._size];
+    for (std::size_t i = 0; i < this->_size; i++)
+      this->_array[i] = obj._array[i];
     return (*this);
   }
   T& operator[](std::size_t obj) {
