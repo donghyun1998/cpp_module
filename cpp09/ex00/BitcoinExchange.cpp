@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 18:31:51 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/26 00:32:47 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void BitcoinExchange::parseDb(const char* dbFileName) {
 	std::fstream dbFile(dbFileName);
 	std::string	line;
 
+	if (dbFile.fail())
+		throw (WrongDb());
 	std::getline(dbFile, line);
 	if (line != "date,exchange_rate") {
 		dbFile.close();
@@ -83,6 +85,8 @@ void BitcoinExchange::parseInput(char* inputFileName) {
 	std::fstream inputFile(inputFileName);
 	std::string	line;
 
+	if (inputFile.fail())
+		throw (WrongInput());
 	std::getline(inputFile, line);
 	if (line != "date | value") {
 		inputFile.close();
