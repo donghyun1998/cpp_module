@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/25 20:41:53 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:26:21 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,55 +47,34 @@ void RPN::checkInput(std::string input) {
 		throw (Error());
 }
 
-void  RPN::plus() {
+void  RPN::calculate(char oper) {
 	int b = _s.top();
-	_s.pop();
-	int	a = _s.top();
-	_s.pop();
-	_s.push(a + b);
-}
-void  RPN::minus() {
-	int b = _s.top();
-	_s.pop();
-	int	a = _s.top();
-	_s.pop();
-	_s.push(a - b);
-}
-void  RPN::multiply() {
-	int b = _s.top();
-	_s.pop();
-	int	a = _s.top();
-	_s.pop();
-	_s.push(a * b);
-}
-void  RPN::devide() {
-	int b = _s.top();
-	if (b == 0)
+	if (oper == '/' && b == 0)
 		throw (DevideByZero());
 	_s.pop();
 	int	a = _s.top();
 	_s.pop();
-	_s.push(a / b);
-}
-
-void	RPN::calculate(char input) {
-	switch (input) {
-		case '+' :
-			plus();
+	switch (oper) {
+		case '+':
+			_s.push(a + b);
 			break ;
-		case '-' :
-			minus();
+		case '-':
+			_s.push(a - b);
 			break ;
-		case '*' :
-			multiply();
+		case '*':
+			_s.push(a * b);
 			break ;
-		case '/' :
-			devide();
-			break ;
-		default : // 숫자 들어온겨
-			_s.push(input - '0');
+		case '/':
+			_s.push(a / b);
 			break ;
 	}
+}
+
+void	RPN::handleUnit(char input) {
+	if (std::isdigit(input))
+		_s.push(input - '0');
+	else
+		calculate(input);
 }
 
 RPN::RPN(std::string input) {
@@ -103,7 +82,7 @@ RPN::RPN(std::string input) {
 	try {
 		checkInput(input);
 		for (std::size_t i = 0; i < input.size(); i += 2)
-			calculate(input[i]);
+			handleUnit(input[i]);
 		std::cout << _s.top() << std::endl;
 	}
 	catch (std::exception &e) {
