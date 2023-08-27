@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/27 22:49:31 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/27 23:07:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class PmergeMe {
   std::vector<int>  _sub;
 
   PmergeMe(const PmergeMe& obj);
-  PmergeMe();
   PmergeMe& operator=(const PmergeMe& obj);
  public:
+  PmergeMe(); // 이거 왜 프라이빗이면 오류나지 전엔 안이랬는데
   ~PmergeMe();
   PmergeMe(std::vector<int> input);
 };
