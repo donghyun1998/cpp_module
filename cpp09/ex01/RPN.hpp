@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:33:45 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/26 16:25:45 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/29 21:04:30 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class RPN {
     virtual const char* what() const throw();
   };
 
-  std::stack<int> _s;
+  std::stack<double> _s;
 
   RPN();
   RPN(const RPN& obj);

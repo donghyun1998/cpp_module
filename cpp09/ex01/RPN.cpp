@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/26 16:26:21 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/29 21:08:16 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void RPN::checkInput(std::string input) {
 }
 
 void  RPN::calculate(char oper) {
+	if (_s.size() < 2)
+		throw (Error());
 	int b = _s.top();
 	if (oper == '/' && b == 0)
 		throw (DevideByZero());
@@ -72,7 +74,7 @@ void  RPN::calculate(char oper) {
 
 void	RPN::handleUnit(char input) {
 	if (std::isdigit(input))
-		_s.push(input - '0');
+		_s.push(static_cast<double>(input - '0'));
 	else
 		calculate(input);
 }
