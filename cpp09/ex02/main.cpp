@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/27 23:06:06 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/29 19:01:19 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ int	main(int argc, char** argv) {
 		std::cout << "duplicated arg" << std::endl;
 		return (0);
 	}
-	PmergeMe(input);
+	PmergeMe pmergeme(input);
 }
