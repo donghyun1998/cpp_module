@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/29 21:08:16 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/29 21:09:27 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void RPN::checkInput(std::string input) {
 void  RPN::calculate(char oper) {
 	if (_s.size() < 2)
 		throw (Error());
-	int b = _s.top();
+	double b = _s.top();
 	if (oper == '/' && b == 0)
 		throw (DevideByZero());
 	_s.pop();
-	int	a = _s.top();
+	double	a = _s.top();
 	_s.pop();
 	switch (oper) {
 		case '+':
