@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/26 00:32:47 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:52:43 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,39 @@ static bool checkValue(double value) {
 	}
 	return (true);
 }
+////////////////////////date 검사//////////////////////////
+static bool isLeapYear(int year) {
+	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+static bool isValidDate(int year, int month, int day) {
+	if (year < 0 || month < 1 || month > 12 || day < 1) {
+		return (false);
+	}
+
+	int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+	if (isLeapYear(year)) {
+		daysInMonth[2] = 29;
+	}
+
+	return (day <= daysInMonth[month]);
+}
+// 연도가 4로 나누어지지 않으면 평년(윤년이 아님).
+// 연도가 4로 나누어지지만 100으로 나누어지면 평년(윤년이 아님).
+// 연도가 100으로 나누어지지만 400으로 나누어지면 윤년.
+
+bool	BitcoinExchange::checkValidDate(std::string date) {
+	std::istringstream ss(date);
+	int year, month, day;
+	char sep = '-';
+
+	if (ss >> year >> sep >> month >> sep >> day && isValidDate(year, month, day))
+		return (true);
+	return (false);
+}
+////////////////////////date 검사//////////////////////////
+
 void BitcoinExchange::printOutputByLine(std::string line) {
 	std::size_t seperatorIdx = line.find('|');
 	if (seperatorIdx == std::string::npos || seperatorIdx <= 0
@@ -70,6 +103,10 @@ void BitcoinExchange::printOutputByLine(std::string line) {
 		return ;
 	}
 	std::string date = line.substr(0, seperatorIdx);
+	if (checkValidDate(date) == false) {
+		std::cout << "bad date -> " << line << std::endl;
+		return ;
+	}
 	double	value = changeToDouble(line.substr(seperatorIdx + 1));
 
 	if (checkValue(value) == false)
