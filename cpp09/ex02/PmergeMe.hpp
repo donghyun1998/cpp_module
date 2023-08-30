@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/29 19:20:03 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:39:03 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class PmergeMe {
   };
   std::vector<std::pair< int, int> > pairInput;
   std::vector<int>  _main;
-  std::vector<int>  _sub;
+  std::vector<int>  _pending;
+  std::vector<int>  _mainIdxMap;
   bool  oddFlag; // TODO: 마지막에 intmax하나 빼줘야함, 중복은 어떻게 할지
 
   PmergeMe(const PmergeMe& obj);
@@ -35,6 +36,7 @@ class PmergeMe {
   PmergeMe();
 
   void  makeSortedPair(std::vector<int> input);
+  void  makeMainIdxMap();
 
  public:
   ~PmergeMe();
