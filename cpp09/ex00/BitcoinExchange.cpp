@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/29 18:52:43 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/08/30 20:21:11 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,16 @@ void BitcoinExchange::printOutputByLine(std::string line) {
 
 	if (checkValue(value) == false)
 		return ;
-	std::map<std::string, double>::iterator it = this->_db.begin();
-	while (it->first < date)
-		it++;
-	it--; // 하위 날짜
-	std::cout << date << "-> " << value << " = " << it->second * value << std::endl;
+	if (this->_db.find(date) == this->_db.end()) {
+		std::map<std::string, double>::iterator it = this->_db.begin();
+		while (it->first < date)
+			it++;
+		it--; // 하위 날짜
+		std::cout << date << "-> " << value << " = " << it->second * value << std::endl;
+	}
+	else
+		std::cout << date << "-> " << value << " = " << this->_db[date] * value << std::endl;
+
 }
 
 void BitcoinExchange::parseInput(char* inputFileName) {
