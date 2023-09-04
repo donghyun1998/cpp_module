@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 00:34:47 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/29 21:09:27 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:16:59 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static bool isOperator(char c) {
 void RPN::checkInput(std::string input) {
 	int numCnt = 0, operCnt = 0;
 	// "8 9 * 9"
-	if (!std::isdigit(input[0]) || input[1] != ' ' || input.size() % 2 == 0)
+	if (input.size() < 5 || !std::isdigit(input[0]) || input[1] != ' ' || input.size() % 2 == 0)
 		throw (Error());
 	for (std::size_t i = 1; i + 1 < input.size(); i += 2) {
 		if (input[i] != ' ')
