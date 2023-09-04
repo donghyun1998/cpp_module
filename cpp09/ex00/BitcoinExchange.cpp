@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:29 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/30 20:21:11 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:08:14 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	BitcoinExchange::addLineToMap(std::string line, std::fstream& dbFile) {
 		throw (WrongDb());
 	}
 	std::string date = line.substr(0, commaIdx);
+	if (checkValidDate(date) == false)
+		throw (WrongDb());
 	double value = changeToDouble(line.substr(commaIdx + 1)); // 이 안에서 체크함
 	_db[date] = value;
 }
