@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 00:23:49 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/04 20:59:17 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/07 20:43:11 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 PmergeMe::~PmergeMe() {}
 
 static void ftInsertionSort(std::vector<std::pair< int, int> > &vec) {
-	int n = vec.size();
-	for (int i = 1; i < n; ++i) {
+	std::size_t n = vec.size();
+	for (std::size_t i = 1; i < n; ++i) {
 		std::pair<int, int> key = vec[i];
 		int j = i - 1;
 
@@ -29,87 +29,82 @@ static void ftInsertionSort(std::vector<std::pair< int, int> > &vec) {
 }
 
 void  PmergeMe::makeSortedPair(std::vector<int> input) {
-	for (int i = 0; i < input.size() - 1; i += 2) {
-		_pairInput.push_back(std::make_pair(std::max(input[i],input[i + 1])
-			, std::min(input[i],input[i + 1])));
+	for (std::size_t i = 0; i < input.size() - 1; i += 2) {
+		_pairInput.push_back(std::make_pair(std::max(input[i],input[i + 1]), std::min(input[i],input[i + 1])));
 	}
-	if (input.size() % 2) {
-		this->_oddFlag = true;
-		this->_remain=  input[input.size() - 1];
-	}
+	if (input.size() % 2)
+		_remain = input[input.size() - 1];
 	else
-		this->_oddFlag = false;
+		_remain = -1;
 	ftInsertionSort(this->_pairInput);
+	std::vector<int> b;
+	for (std::size_t i = 0; i < _pairInput.size(); i++)
+		_a.push_back(this->_pairInput[i].first);
+}
 
-	for (int i = 0; i < _pairInput.size(); i++) {
-		this->_a.push_back(this->_pairInput[i].first);
-		this->_b.push_back(this->_pairInput[i].second);
+void PmergeMe::fillBIdx() {
+	std::size_t prevprev = 1, prev = 3;
+
+	_bIdx.push_back(0);
+	std::size_t cur = 3;
+	for (std::size_t i = 0; i < _pairInput.size() - 1; i++) { // 하나 덜넣어야 함 이미넣었음
+		if (cur == prevprev) {
+			int oldPrevprev = prevprev;
+			prevprev = prev;
+			prev = oldPrevprev * 2 + prev;
+			cur = prev;
+		}
+		if (cur > _pairInput.size())
+			cur = _pairInput.size();
+		_bIdx.push_back(cur-- - 1);
 	}
 }
 
+void PmergeMe::binarySearch(int end, int target) {
+	int start = 0;
 
-void	PmergeMe::makeMainIdxArr() {
-	for (int i = 0; i < this->_pairInput.size(); i++)
-		this->_mainIdxArr.push_back(i);
+	while (start <= end) { // 범위 검사 수정
+		int mid = start + (end - start) / 2;
+
+		if (target < _a[mid])
+			end = mid - 1;
+		else if (target > _a[mid])
+			start = mid + 1;
+		else {
+			// 중복된 target 처리
+			_a.insert(_a.begin() + mid, target);
+			return;
+		}
+	}
+
+	// 타겟이 모든 요소보다 큰 경우 처리
+	if (start == static_cast<int>(_a.size()))
+		_a.push_back(target);
+	else
+		_a.insert(_a.begin() + start, target);
 }
 
-// int	isJacob[3001] = { 0 };
-
-void PmergeMe::fillIsJacob() {
-	int jacob[] = {0, 2, 4, 10, 20, 42, 84, 170, 340, 682, 1364};
-	// idx라 하나씩 뺴줬음
-	for (int i = 0; i < this->_b.size(); i++)
-		this->_isJacob.push_back(0);
-	for (int i = 0; i < 10; i++)
-		this->_isJacob[jacob[i]] = jacob[i + 1];
-	this->_isJacob[jacob[10]] = this->_b.size() - 1;
-}
-
-int	PmergeMe::getNextJacobSthalNum(int prevIdx) {
-	if (this->_isJacob[prevIdx] != 0)
-		return (this->_isJacob[prevIdx]);
-}
-
-
-static bool binarySearch(const std::vector<int>& vec, int end, int target) {
-    int start = 0;
-
-    while (start <= end) {
-        int mid = start + (end - start) / 2;
-
-        if (vec[mid] == target)
-            return true; // 찾았을 때
-        else if (vec[mid] < target)
-            start = mid + 1;
-		else
-            end = mid - 1;
-    }
-
-    return false; // 찾지 못했을 때
+static void printVec(std::vector<int> v) {
+	for (std::size_t i = 0; i < v.size(); i++)
+		std::cout << v[i] << ' ';
+	std::cout << std::endl;
 }
 
 void PmergeMe::pendingBtoA() {
-	int idx = 0;
-	fillIsJacob();
-
-	while (idx < this->_b.size()) {
-		binarySearch(this->_a, idx, this->_b[idx]);
-		// 넣은 a의 idx 이상인 mainIdxArr 1씩 더해줌
-
-		idx--;
-		// idx == -1일때 2 뱉게 해줘야함
-		int nextIdx = getNextJacobSthalNum(idx); // 이게아니야
-		if (nextIdx != 0)
-			idx = nextIdx;
+	fillBIdx();
+	for (std::size_t i = 0; i < this->_pairInput.size(); i++) {
+		int end = std::find(_a.begin(),_a.end(), _pairInput[_bIdx[i]].first) - _a.begin();
+		binarySearch(end, _pairInput[_bIdx[i]].second);
 	}
-
+	if (_remain != -1)
+		binarySearch(_a.size(), _remain);
 }
+
 
 
 PmergeMe::PmergeMe(std::vector<int>	input) {
 	// TODO: 시간 시작하기
 	makeSortedPair(input);
-	makeMainIdxArr();
 	pendingBtoA();
-	// _a 출력해주면 끝
+	printVec(_a);
 }

@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/29 19:01:19 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/07 19:34:33 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static std::vector<int>	getVectorInput(int argc, char** argv) {
 	return (res);
 }
 
-static bool checkDuplicate(std::vector<int> v) {
-	for (int i = 0; i < v.size() - 1; i++)
-		for (int j = i + 1; j < v.size(); j++)
-			if (v[i] == v[j])
-				return (false);
-	return (true);
-}
+// static bool checkDuplicate(std::vector<int> v) {
+// 	for (std::size_t i = 0; i < v.size() - 1; i++)
+// 		for (std::size_t j = i + 1; j < v.size(); j++)
+// 			if (v[i] == v[j])
+// 				return (false);
+// 	return (true);
+// }
 
 int	main(int argc, char** argv) {
 	if (argc == 1 || checkInput(argc, argv) == false) {
@@ -47,9 +47,9 @@ int	main(int argc, char** argv) {
 		return (0);
 	}
 	std::vector<int> input = getVectorInput(argc, argv);
-	if (checkDuplicate(input) == false) {
-		std::cout << "duplicated arg" << std::endl;
-		return (0);
-	}
+	// if (checkDuplicate(input) == false) {
+	// 	std::cout << "duplicated arg" << std::endl;
+	// 	return (0);
+	// }
 	PmergeMe pmergeme(input);
 }
