@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/07 19:34:33 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/09 16:31:54 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ static std::vector<int>	getVectorInput(int argc, char** argv) {
 	return (res);
 }
 
+static std::deque<int>	getDequeInput(int argc, char** argv) {
+	std::deque<int>	res;
+
+	for (int i = 1; i < argc; i++)
+		res.push_back(std::atoi(argv[i]));
+	return (res);
+}
+
 // static bool checkDuplicate(std::vector<int> v) {
 // 	for (std::size_t i = 0; i < v.size() - 1; i++)
 // 		for (std::size_t j = i + 1; j < v.size(); j++)
@@ -46,10 +54,11 @@ int	main(int argc, char** argv) {
 		std::cout << "wrong arg" << std::endl;
 		return (0);
 	}
-	std::vector<int> input = getVectorInput(argc, argv);
-	// if (checkDuplicate(input) == false) {
+	std::vector<int> vInput = getVectorInput(argc, argv);
+	// if (checkDuplicate(vInput) == false) {
 	// 	std::cout << "duplicated arg" << std::endl;
 	// 	return (0);
 	// }
-	PmergeMe pmergeme(input);
+	std::deque<int> dInput = getDequeInput(argc, argv);
+	PmergeMe pmergeme(vInput, dInput);
 }
