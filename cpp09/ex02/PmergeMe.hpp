@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/09 16:32:20 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:14:30 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ class PmergeMe {
   void  vPendingBtoA();
   void  vFillJacobIdx();
   void  vBinarySearch(int end, int target);
+
+
+  void  dMakeSortedPair(std::deque<int> input);
+  void  dMakeMainIdxArr();
+  void  dPendingBtoA();
+  void  dFillJacobIdx();
+  void  dBinarySearch(int end, int target);
  public:
   ~PmergeMe();
   PmergeMe(std::vector<int> vInput, std::deque<int> dInput);
