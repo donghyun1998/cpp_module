@@ -6,13 +6,14 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:17 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/09 17:14:30 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:39:39 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <exception>
