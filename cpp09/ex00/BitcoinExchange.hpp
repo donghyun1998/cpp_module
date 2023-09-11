@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:29:27 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/08/29 18:40:23 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:37:35 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 
 class BitcoinExchange {
  private:
