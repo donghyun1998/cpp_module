@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/09 17:21:35 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:50:45 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	checkInput(int argc, char** argv) {
 	// TODO: "3 4 5 6" 이런거도 해야하나?
 	for (int i = 1; i < argc; i++) {
 		for (int j = 0; argv[i][j]; j++)
-			if (!std::isdigit(argv[i][j]))
+			if (!std::isdigit(argv[i][j] || )) // ㅇㅣ미 정정렬렬된지
 				return (false);
 	}
 	return (true);
@@ -42,7 +42,7 @@ static std::deque<int>	getDequeInput(int argc, char** argv) {
 }
 
 int	main(int argc, char** argv) {
-	if (argc == 1 || checkInput(argc, argv) == false) {
+	if (argc == 1 || argc == 2 || checkInput(argc, argv) == false) {
 		std::cout << "wrong arg" << std::endl;
 		return (0);
 	}
