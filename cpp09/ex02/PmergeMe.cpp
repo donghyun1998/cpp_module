@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 00:23:49 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/09 17:23:08 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:23:46 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void  PmergeMe::vMakeSortedPair(std::vector<int> input) {
 	else
 		_remain = -1;
 	vInsertionSort(this->_vPairInput);
-	std::vector<int> b;
 	for (std::size_t i = 0; i < _vPairInput.size(); i++)
 		_vMainChain.push_back(this->_vPairInput[i].first);
 }
