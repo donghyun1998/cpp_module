@@ -6,7 +6,7 @@
 /*   By: donghyk2 <donghyk2@student.42.kr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:46:07 by donghyk2          #+#    #+#             */
-/*   Updated: 2023/09/14 14:29:02 by donghyk2         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:34:09 by donghyk2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static bool	checkInput(int argc, char** argv) {
 	for (int i = 1; i < argc; i++) {
 		for (int j = 0; argv[i][j]; j++)
-			if (!std::isdigit(argv[i][j]) || argv[i][j] == '0')
+			if (!std::isdigit(argv[i][j]))
 				return (false);
 	}
 	return (true);
@@ -38,6 +38,13 @@ static bool isSorted(std::vector<int> v) {
 	return (true);
 }
 
+static bool isZero(std::vector<int> v) {
+	for (std::size_t i = 0; i < v.size(); i++)
+			if (v[i] == 0)
+				return (true);
+	return (false);
+}
+
 static std::deque<int>	getDequeInput(int argc, char** argv) {
 	std::deque<int>	res;
 
@@ -52,7 +59,7 @@ int	main(int argc, char** argv) {
 		return (0);
 	}
 	std::vector<int> vInput = getVectorInput(argc, argv);
-	if (isSorted(vInput)) {
+	if (isSorted(vInput) || isZero(vInput)) {
 		std::cout << "wrong arg" << std::endl;
 		return (0);
 	}
